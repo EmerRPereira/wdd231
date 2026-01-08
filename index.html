@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="WDD231 Course Home Page">
+  <meta name="author" content="Emerson Ronald Pereira">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WDD231 | Home</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/small.css">
+  <link rel="stylesheet" href="css/large.css">
+
+  <!-- JavaScript -->
+  <script src="js/navigation.js" defer></script>
+  <script src="js/date.js" defer></script>
+  <script src="js/course.js" defer></script>
+</head>
+
+<body>
+<header>
+  <div class="header-content">
+    <img src="images/logo.svg" alt="Site logo" width="40" height="40">
+    <span class="site-name">Emerson Ronald Pereira</span>
+    <button id="menu" aria-label="Open Menu"></button>
+  </div>
+
+  <nav id="nav">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="#">Chamber</a></li>
+      <li><a href="#">Final</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Home</h1>
+
+  <section>
+    <h2>Course Information</h2>
+    <div id="course-filters">
+      <button data-filter="all">All</button>
+      <button data-filter="wdd">WDD</button>
+      <button data-filter="cse">CSE</button>
+    </div>
+    <div id="courses"></div>
+    <p>Total Credits: <span id="totalCredits"></span></p>
+  </section>
+
+  <section>
+    <h2>Learning Activities</h2>
+    <p>Weekly learning activities and hands-on development tasks.</p>
+  </section>
+
+  <section>
+    <h2>Resources</h2>
+    <p>Helpful references, tools, and documentation.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="social">
+    <a href="https://github.com/SEUUSUARIO" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/SEUPERFIL" target="_blank">LinkedIn</a>
+  </div>
+
+  <p>
+    &copy; <span id="currentyear"></span> Emerson Ronald Pereira | Brazil
+  </p>
+
+  <p id="lastModified"></p>
+</footer>
+</body>
+</html>
