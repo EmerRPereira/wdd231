@@ -1,46 +1,46 @@
-/* large.css - Desktop - CORRIGIR ORDEM */
+/* large.css - Desktop */
 
 @media (min-width: 768px) {
-  /* HEADER - usar order para controlar posição */
+  /* HEADER DESKTOP - TUDO NA MESMA LINHA */
   .header-container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 2rem;
     height: 80px;
-    background-color: #003049;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  /* 1. LOGO - ESQUERDA */
+  /* Logo - ESQUERDA */
   .logo {
     height: 60px;
-    width: auto;
-    display: block !important;
-    order: 1 !important; /* PRIMEIRO */
-    flex-shrink: 0;
+    order: 1;
   }
 
-  /* 2. BOTÃO HAMBURGER - ESCONDIDO */
+  /* Botão hamburger - ESCONDIDO NO DESKTOP */
   .hamburger {
     display: none !important;
   }
 
-  /* 3. NAVEGAÇÃO - MEIO */
+  /* Navegação - MEIO (como parte do flex container) */
   #nav {
     display: flex !important;
-    order: 2 !important; /* SEGUNDO (no meio) */
+    order: 2;
     flex-grow: 1;
     justify-content: center;
     align-items: center;
     margin: 0 2rem;
     background: transparent !important;
     position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    box-shadow: none !important;
+    width: auto !important;
+    height: auto !important;
   }
 
-  /* LISTA - LINHA HORIZONTAL NO CENTRO */
   #nav ul {
     display: flex !important;
     flex-direction: row !important;
@@ -49,47 +49,41 @@
     padding: 0;
     list-style: none;
     align-items: center;
-    justify-content: center;
-    width: 100%;
   }
 
-  /* ITENS DO MENU */
   #nav li {
-    display: flex;
-    align-items: center;
+    margin: 0;
   }
 
-  /* LINKS DO MENU */
   #nav a {
     display: inline-block !important;
-    padding: 0.8rem 1.5rem;
-    color: white !important;
+    padding: 0.5rem 1.5rem;
+    color: var(--light-text) !important;
     text-decoration: none;
     border-radius: 4px;
     border: 2px solid transparent;
     transition: all 0.3s;
-    font-size: 1rem;
+    background-color: transparent !important;
+    border-bottom: none !important;
   }
 
   #nav a:hover,
   #nav a.active {
-    background-color: #4a7fa3 !important;
+    background-color: var(--secondary-color) !important;
     transform: translateY(-2px);
-    border-color: #4a7fa3;
+    border-color: var(--secondary-color);
   }
 
-  /* 4. NOME - DIREITA */
+  /* Nome - DIREITA */
   .site-name {
-    display: block !important;
-    order: 3 !important; /* TERCEIRO (direita) */
+    order: 3;
     font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-    flex-shrink: 0;
-    white-space: nowrap;
+    max-width: none;
+    white-space: normal;
+    text-align: right;
   }
 
-  /* RESTANTE DO CSS (mantenha igual) */
+  /* CONTEÚDO PRINCIPAL */
   .content {
     padding: 2rem;
     max-width: 1200px;
@@ -98,6 +92,7 @@
     padding-bottom: 120px;
   }
 
+  /* Grid para cursos */
   #courses {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
@@ -110,9 +105,10 @@
 
   .course:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 
+  /* Botões de filtro */
   #course-filters {
     justify-content: center;
     margin: 2rem 0;
@@ -124,11 +120,13 @@
     min-width: 100px;
   }
 
+  /* Seções */
   section {
     padding: 2rem;
     margin-bottom: 2.5rem;
   }
 
+  /* FOOTER DESKTOP */
   footer {
     padding: 0.4rem 1rem;
   }
@@ -138,6 +136,8 @@
     flex-direction: column;
     align-items: center;
     padding: 0.2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .social {
