@@ -1,93 +1,103 @@
+/* large.css - Desktop - CORRIGIR ORDEM */
+
 @media (min-width: 768px) {
-  /* HEADER DESKTOP - alterar order para desktop */
+  /* HEADER - usar order para controlar posição */
   .header-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 2rem;
     height: 80px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: "logo nav name";
-    align-items: center;
-    gap: 2rem;
+    background-color: #003049;
   }
 
-  /* Logo */
+  /* 1. LOGO - ESQUERDA */
   .logo {
-    grid-area: logo;
     height: 60px;
-    order: 1 !important; /* Força ordem no desktop */
+    width: auto;
+    display: block !important;
+    order: 1 !important; /* PRIMEIRO */
+    flex-shrink: 0;
   }
 
-  /* Esconde botão hamburger */
+  /* 2. BOTÃO HAMBURGER - ESCONDIDO */
   .hamburger {
     display: none !important;
   }
 
-  /* Navegação no centro */
-  nav {
+  /* 3. NAVEGAÇÃO - MEIO */
+  #nav {
     display: flex !important;
-    grid-area: nav;
-    position: static;
-    top: auto;
-    left: auto;
-    right: auto;
-    box-shadow: none;
-    border-top: none;
-    background: transparent;
-    order: 2 !important; /* Força ordem no desktop */
+    order: 2 !important; /* SEGUNDO (no meio) */
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem;
+    background: transparent !important;
+    position: static !important;
   }
 
-  nav ul {
-    display: flex;
-    justify-content: center;
+  /* LISTA - LINHA HORIZONTAL NO CENTRO */
+  #nav ul {
+    display: flex !important;
+    flex-direction: row !important;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
     width: 100%;
   }
 
-  nav li {
-    flex: 0 1 auto;
+  /* ITENS DO MENU */
+  #nav li {
+    display: flex;
+    align-items: center;
   }
 
-  nav a {
-    padding: 0.5rem 1.5rem;
+  /* LINKS DO MENU */
+  #nav a {
+    display: inline-block !important;
+    padding: 0.8rem 1.5rem;
+    color: white !important;
+    text-decoration: none;
     border-radius: 4px;
     border: 2px solid transparent;
-    border-bottom: none;
     transition: all 0.3s;
+    font-size: 1rem;
   }
 
-  nav a:hover {
-    background-color: #669bbc;
+  #nav a:hover,
+  #nav a.active {
+    background-color: #4a7fa3 !important;
     transform: translateY(-2px);
-    border-color: #669bbc;
+    border-color: #4a7fa3;
   }
 
-  nav a.active {
-    background-color: #669bbc;
-    border-color: #669bbc;
-  }
-
-  /* Nome à direita - manter no desktop */
+  /* 4. NOME - DIREITA */
   .site-name {
-    grid-area: name;
-    text-align: right;
+    display: block !important;
+    order: 3 !important; /* TERCEIRO (direita) */
     font-size: 1.1rem;
-    padding: 0;
-    flex-grow: 0;
-    order: 3 !important; /* Força ordem no desktop */
-    max-width: none;
-    overflow: visible;
-    white-space: normal;
+    font-weight: bold;
+    color: white;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 
-  /* CONTEÚDO PRINCIPAL */
+  /* RESTANTE DO CSS (mantenha igual) */
   .content {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    padding-bottom: 120px;
   }
 
-  /* Grid para cursos */
   #courses {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
@@ -103,7 +113,6 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
 
-  /* Botões de filtro */
   #course-filters {
     justify-content: center;
     margin: 2rem 0;
@@ -115,17 +124,11 @@
     min-width: 100px;
   }
 
-  /* Seções com layout melhor */
   section {
     padding: 2rem;
     margin-bottom: 2.5rem;
   }
-}
 
-  @media (min-width: 768px) {
-  /* ... mantém todo o resto do CSS ... */
-
-  /* FOOTER DESKTOP - COMPACTO */
   footer {
     padding: 0.4rem 1rem;
   }
@@ -169,14 +172,16 @@
   }
 }
 
-/* Para telas maiores */
 @media (min-width: 1024px) {
   .header-container {
     padding: 0 3rem;
-    gap: 3rem;
   }
 
-  nav ul {
+  #nav {
+    margin: 0 3rem;
+  }
+
+  #nav ul {
     gap: 3rem;
   }
 
