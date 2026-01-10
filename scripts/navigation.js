@@ -1,30 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navigation = document.querySelector('.navigation');
-    
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            navigation.classList.toggle('active');
-            this.textContent = navigation.classList.contains('active') ? '✕' : '☰';
-        });
+const menuButton = document.querySelector("#menu");
+const nav = document.querySelector("#nav");
+const hamburgerIcon = document.querySelector(".hamburger-icon");
+const closeIcon = document.querySelector(".close-icon");
+
+menuButton.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", isOpen);
+  
+  // Alternar ícones
+  if (isOpen) {
+    hamburgerIcon.style.display = "none";
+    closeIcon.style.display = "inline";
+  } else {
+    hamburgerIcon.style.display = "inline";
+    closeIcon.style.display = "none";
+  }
+});
+
+// Fechar menu ao clicar em um link
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth < 768) {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      hamburgerIcon.style.display = "inline";
+      closeIcon.style.display = "none";
     }
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.navigation a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth < 768) {
-                navigation.classList.remove('active');
-                hamburger.textContent = '☰';
-            }
-        });
-    });
-    
-    // Close menu on window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768) {
-            navigation.classList.remove('active');
-            if (hamburger) hamburger.textContent = '☰';
-        }
-    });
+  });
+});
+
+// Fechar menu ao redimensionar para desktop
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 768) {
+    nav.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    hamburgerIcon.style.display = "inline";
+    closeIcon.style.display = "none";
+  }
 });
