@@ -1,0 +1,131 @@
+/* Base styles for mobile (320px and up) */
+:root {
+    --primary-color: #your-color;
+    --secondary-color: #your-color;
+    --accent-color: #your-color;
+    --text-color: #your-color;
+    --background-color: #your-color;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Your Selected Font', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block;
+}
+
+/* Navigation styles for mobile */
+.navigation {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--secondary-color);
+}
+
+.navigation.active {
+    display: flex;
+}
+
+.navigation li {
+    width: 100%;
+}
+
+.navigation a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navigation a:hover,
+.navigation a.active {
+    background-color: var(--accent-color);
+}
+
+/* Main content */
+main {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Course cards */
+.course-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.course-card {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.course-card.completed {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Filter buttons */
+.filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    margin: 0 0.5rem;
+}
