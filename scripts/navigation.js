@@ -3,39 +3,41 @@ const nav = document.querySelector("#nav");
 const hamburgerIcon = document.querySelector(".hamburger-icon");
 const closeIcon = document.querySelector(".close-icon");
 
+// Função para verificar se está em mobile
+function isMobile() {
+  return window.innerWidth < 768;
+}
+
+// Alternar menu mobile
 menuButton.addEventListener("click", () => {
-  const isOpen = nav.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", isOpen);
-  
-  // Alternar ícones
-  if (isOpen) {
-    hamburgerIcon.style.display = "none";
-    closeIcon.style.display = "inline";
-  } else {
-    hamburgerIcon.style.display = "inline";
-    closeIcon.style.display = "none";
+  if (isMobile()) {
+    const isOpen = nav.classList.toggle("open");
+    menuButton.classList.toggle("active", isOpen);
+    menuButton.setAttribute("aria-expanded", isOpen);
   }
 });
 
-// Fechar menu ao clicar em um link
+// Fechar menu ao clicar em um link (apenas mobile)
 const navLinks = document.querySelectorAll("nav a");
 navLinks.forEach(link => {
   link.addEventListener("click", () => {
-    if (window.innerWidth < 768) {
+    if (isMobile()) {
       nav.classList.remove("open");
+      menuButton.classList.remove("active");
       menuButton.setAttribute("aria-expanded", "false");
-      hamburgerIcon.style.display = "inline";
-      closeIcon.style.display = "none";
     }
   });
 });
 
-// Fechar menu ao redimensionar para desktop
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 768) {
+// Reset menu quando redimensionar para desktop
+function resetMenuForDesktop() {
+  if (!isMobile()) {
     nav.classList.remove("open");
+    menuButton.classList.remove("active");
     menuButton.setAttribute("aria-expanded", "false");
-    hamburgerIcon.style.display = "inline";
-    closeIcon.style.display = "none";
   }
-});
+}
+
+// Verificar ao carregar e redimensionar
+window.addEventListener("load", resetMenuForDesktop);
+window.addEventListener("resize", resetMenuForDesktop);
