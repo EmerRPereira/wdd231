@@ -1,82 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="WDD231 Course Home Page">
-  <meta name="author" content="Emerson Ronald Pereira">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>WDD231 | Home</title>
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/small.css">
-  <link rel="stylesheet" href="css/large.css">
-
-  <!-- JavaScript -->
-  <script src="js/navigation.js" defer></script>
-  <script src="js/date.js" defer></script>
-  <script src="js/course.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course home page for WDD231 - Emerson Ronald Pereira">
+    <meta name="author" content="Emerson Ronald Pereira">
+    <title>WDD231 - Emerson Ronald Pereira</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Your+Selected+Font&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/large.css">
+    
+    <!-- JavaScript Files (deferred) -->
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
 </head>
 
 <body>
-<header>
-  <div class="header-content">
-    <img src="images/logo.svg" alt="Site logo" width="40" height="40">
-    <span class="site-name">Emerson Ronald Pereira</span>
-    <button id="menu" aria-label="Open Menu"></button>
-  </div>
-
-  <nav id="nav">
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="#">Chamber</a></li>
-      <li><a href="#">Final</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <h1>Home</h1>
-
-  <section>
-    <h2>Course Information</h2>
-    <div id="course-filters">
-      <button data-filter="all">All</button>
-      <button data-filter="wdd">WDD</button>
-      <button data-filter="cse">CSE</button>
-    </div>
-    <div id="courses"></div>
-    <p>Total Credits: <span id="totalCredits"></span></p>
-  </section>
-
-  <section>
-    <h2>Learning Activities</h2>
-    <p>Weekly learning activities and hands-on development tasks.</p>
-  </section>
-
-  <section>
-    <h2>Resources</h2>
-    <p>Helpful references, tools, and documentation.</p>
-  </section>
-</main>
-
-<footer>
-  <div class="social">
-    <a href="https://github.com/SEUUSUARIO" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/SEUPERFIL" target="_blank">LinkedIn</a>
-  </div>
-
-  <p>
-    &copy; <span id="currentyear"></span> Emerson Ronald Pereira | Brazil
-  </p>
-
-  <p id="lastModified"></p>
-</footer>
+    <header>
+        <img src="images/logo.svg" alt="Site Logo" width="50" height="50">
+        <span>Student Name</span>
+        <button class="hamburger" aria-label="Navigation Menu">☰</button>
+    </header>
+    
+    <nav>
+        <ul class="navigation">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="chamber.html">Chamber</a></li>
+            <li><a href="final.html">Final</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h1>Home</h1>
+        
+        <section class="hero">
+            <h2>About Me</h2>
+            <p>[Your personal introduction here...]</p>
+        </section>
+        
+        <section class="certificates">
+            <h2>Web Certificate Courses</h2>
+            <div class="filter-buttons">
+                <button id="all">All</button>
+                <button id="wdd">WDD Courses</button>
+                <button id="cse">CSE Courses</button>
+            </div>
+            <div class="course-cards" id="courseDisplay">
+                <!-- Course cards will be dynamically generated here -->
+            </div>
+            <p id="creditTotal">Total credits: <span id="totalCredits">0</span></p>
+        </section>
+        
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <h3>Chamber Project</h3>
+                    <p>[Project description...]</p>
+                </div>
+                <div class="project-card">
+                    <h3>Final Project</h3>
+                    <p>[Project description...]</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                <img src="images/github.svg" alt="GitHub" width="30" height="30">
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                <img src="images/linkedin.svg" alt="LinkedIn" width="30" height="30">
+            </a>
+            <!-- Add 1-2 more social media links -->
+        </div>
+        
+        <div class="footer-info">
+            <p>&copy; <span id="currentYear"></span> • Emerson Ronald Pereira • Curitiba, Paraná, Brasil</p>
+            <p id="lastModified">Last Modification: </p>
+        </div>
+    </footer>
 </body>
 </html>
