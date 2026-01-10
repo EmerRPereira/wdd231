@@ -1,3 +1,5 @@
+/* small.css - Mobile First */
+
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +38,7 @@ header {
   padding: 0.8rem 1rem;
   height: 70px;
   width: 100%;
+  transition: all 0.3s ease;
 }
 
 /* Logo */
@@ -59,12 +62,25 @@ header {
   justify-content: center;
   font-size: 1.8rem;
   flex-shrink: 0;
-  order: 2; /* Coloca no meio */
+  order: 2;
   margin: 0 auto;
 }
 
 .hamburger .close-icon {
   font-size: 1.5rem;
+  display: none;
+}
+
+.hamburger .hamburger-icon {
+  display: inline;
+}
+
+.hamburger.active .hamburger-icon {
+  display: none;
+}
+
+.hamburger.active .close-icon {
+  display: inline;
 }
 
 /* Nome à DIREITA */
@@ -74,14 +90,14 @@ header {
   font-weight: bold;
   text-align: right;
   flex-shrink: 0;
-  order: 3; /* Coloca à direita */
+  order: 3;
   max-width: 40%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Navegação mobile - abaixo do header */
+/* Navegação mobile */
 nav {
   display: none;
   background-color: #003049;
@@ -115,17 +131,20 @@ nav a {
   transition: background-color 0.3s;
 }
 
+/* CORRIGIR CONTRASTE: alterar cor para melhor contraste */
 nav a:hover,
 nav a.active {
-  background-color: #669bbc;
+  background-color: #4a7fa3; /* Mais escuro para melhor contraste */
+  color: white;
 }
 
-/* CONTEÚDO PRINCIPAL (rolável) */
+/* CONTEÚDO PRINCIPAL */
 .content {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
   background-color: #f8f9fa;
+  padding-bottom: 100px;
 }
 
 /* Seções */
@@ -187,19 +206,13 @@ h2 {
   transition: background-color 0.3s;
 }
 
-#course-filters button:hover {
-  background-color: #669bbc;
+#course-filters button:hover,
+#course-filters button.active {
+  background-color: #4a7fa3; /* Melhor contraste */
 }
 
 #course-filters button:active {
   transform: translateY(1px);
-}
-
-/* Estilo para botões ativos */
-#course-filters button.active {
-  background-color: #669bbc;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* Status do curso */
@@ -223,7 +236,7 @@ footer {
   bottom: 0;
   z-index: 100;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  min-height: auto;
+  min-height: 90px;
 }
 
 .footer-content {
@@ -233,7 +246,7 @@ footer {
   padding: 0.3rem 0;
 }
 
-/* Redes sociais - mais compacto */
+/* Redes sociais */
 .social {
   display: flex;
   justify-content: center;
@@ -256,7 +269,7 @@ footer {
 }
 
 .social a:hover {
-  background-color: #669bbc;
+  background-color: #4a7fa3;
 }
 
 .social svg {
@@ -264,7 +277,7 @@ footer {
   height: 18px;
 }
 
-/* Informações do rodapé - compacto */
+/* Informações do rodapé */
 .footer-info {
   line-height: 1.2;
 }
@@ -277,24 +290,7 @@ footer {
 #lastModified {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.8);
-}
-
-/* Garantir que a data apareça */
-#lastModified {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Ajustar altura do rodapé */
-footer {
-  height: auto;
-  min-height: 90px; /* Altura mínima compacta */
-}
-
-/* Ajustar conteúdo principal para compensar rodapé fixo */
-.content {
-  padding-bottom: 100px; /* Espaço para o rodapé */
+  display: block;
 }
 
 /* Para mobile muito pequeno */
@@ -315,5 +311,41 @@ footer {
   .social svg {
     width: 16px;
     height: 16px;
+  }
+}
+
+/* Garantir transição suave */
+nav {
+  transition: all 0.3s ease;
+}
+
+/* Reset para desktop - importante! */
+@media (min-width: 768px) {
+  /* O CSS do large.css vai sobrescrever tudo */
+  /* Estas regras são apenas para garantir reset */
+  .hamburger {
+    display: none;
+  }
+  
+  nav {
+    display: flex;
+    position: static;
+    background: transparent;
+    border-top: none;
+    box-shadow: none;
+  }
+  
+  nav ul {
+    flex-direction: row;
+  }
+  
+  nav li {
+    text-align: left;
+  }
+  
+  nav a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-bottom: none;
   }
 }
