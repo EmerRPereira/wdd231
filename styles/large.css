@@ -1,46 +1,190 @@
-@media screen and (min-width: 768px) {
-    /* Hide hamburger menu */
-    .hamburger {
-        display: none;
-    }
-    
-    /* Show navigation as horizontal */
-    .navigation {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        background-color: var(--primary-color);
-    }
-    
-    .navigation li {
-        width: auto;
-    }
-    
-    .navigation a {
-        border-bottom: none;
-        padding: 1rem 2rem;
-    }
-    
-    /* Adjust course cards grid */
-    .course-cards {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-    
-    /* Project cards layout */
-    .project-cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
+@media (min-width: 768px) {
+  /* HEADER DESKTOP - alterar order para desktop */
+  .header-container {
+    padding: 0 2rem;
+    height: 80px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo nav name";
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* Logo */
+  .logo {
+    grid-area: logo;
+    height: 60px;
+    order: 1 !important; /* Força ordem no desktop */
+  }
+
+  /* Esconde botão hamburger */
+  .hamburger {
+    display: none !important;
+  }
+
+  /* Navegação no centro */
+  nav {
+    display: flex !important;
+    grid-area: nav;
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    box-shadow: none;
+    border-top: none;
+    background: transparent;
+    order: 2 !important; /* Força ordem no desktop */
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  nav li {
+    flex: 0 1 auto;
+  }
+
+  nav a {
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    border-bottom: none;
+    transition: all 0.3s;
+  }
+
+  nav a:hover {
+    background-color: #669bbc;
+    transform: translateY(-2px);
+    border-color: #669bbc;
+  }
+
+  nav a.active {
+    background-color: #669bbc;
+    border-color: #669bbc;
+  }
+
+  /* Nome à direita - manter no desktop */
+  .site-name {
+    grid-area: name;
+    text-align: right;
+    font-size: 1.1rem;
+    padding: 0;
+    flex-grow: 0;
+    order: 3 !important; /* Força ordem no desktop */
+    max-width: none;
+    overflow: visible;
+    white-space: normal;
+  }
+
+  /* CONTEÚDO PRINCIPAL */
+  .content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Grid para cursos */
+  #courses {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .course {
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .course:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Botões de filtro */
+  #course-filters {
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  #course-filters button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    min-width: 100px;
+  }
+
+  /* Seções com layout melhor */
+  section {
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
-/* Additional large screen adjustments */
-@media screen and (min-width: 1024px) {
-    .course-cards {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    
-    main {
-        padding: 2rem;
-    }
+  @media (min-width: 768px) {
+  /* ... mantém todo o resto do CSS ... */
+
+  /* FOOTER DESKTOP - COMPACTO */
+  footer {
+    padding: 0.4rem 1rem;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.2rem 0;
+  }
+
+  .social {
+    gap: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .social a {
+    width: 34px;
+    height: 34px;
+  }
+
+  .social svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .footer-info p {
+    margin: 0.1rem 0;
+    font-size: 0.85rem;
+  }
+
+  #lastModified {
+    font-size: 0.8rem;
+  }
+}
+
+/* Para telas maiores */
+@media (min-width: 1024px) {
+  .header-container {
+    padding: 0 3rem;
+    gap: 3rem;
+  }
+
+  nav ul {
+    gap: 3rem;
+  }
+
+  .content {
+    padding: 3rem 2rem;
+  }
+
+  #courses {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
 }
