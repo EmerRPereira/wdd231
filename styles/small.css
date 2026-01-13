@@ -387,3 +387,16 @@ footer {
     font-size: 1.3rem;
   }
 }
+
+.about-section,
+.photo-section {
+  text-align: center;
+}
+
+.photo-section img {
+  max-width: 260px;
+  margin: 1rem auto 0;
+  border-radius: 8px;
+}
+
+
