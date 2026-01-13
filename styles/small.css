@@ -1,15 +1,18 @@
 /* small.css - Mobile First */
 
-/* Reset e variáveis */
+/* Reset e variáveis - CORRIGIDO PARA CONTRASTE AA */
 :root {
-  --primary-color: #003049;
-  --secondary-color: #4a7fa3;
-  --accent-color: #a7c957;
-  --text-color: #333;
-  --light-text: #fff;
+  --primary-color: #003366; /* Mais escuro para melhor contraste */
+  --secondary-color: #0056b3; /* Mais escuro para AA */
+  --accent-color: #4c8c4c; /* Verde mais escuro para AA */
+  --accent-light: #a7c957;
+  --text-color: #222222; /* Texto mais escuro */
+  --light-text: #ffffff;
   --background-color: #f8f9fa;
-  --card-background: #fff;
-  --gray-light: #eaeaea;
+  --card-background: #ffffff;
+  --gray-light: #f0f0f0;
+  --gray-medium: #666666;
+  --border-color: #dddddd;
 }
 
 * {
@@ -66,7 +69,7 @@ header {
 /* Botão hamburger - VISÍVEL APENAS MOBILE */
 .hamburger {
   background: none;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--light-text);
   cursor: pointer;
   width: 44px;
@@ -77,6 +80,8 @@ header {
   font-size: 1.8rem;
   flex-shrink: 0;
   z-index: 101;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger .close-icon {
@@ -135,7 +140,7 @@ nav a {
   padding: 1rem;
   color: var(--light-text);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   transition: background-color 0.3s;
 }
 
@@ -160,6 +165,7 @@ section {
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 h1 {
@@ -167,11 +173,49 @@ h1 {
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--secondary-color);
+  font-size: 1.8rem;
 }
 
 h2 {
   color: var(--primary-color);
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Seção de cursos */
+.course-section {
+  background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+}
+
+.course-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.credits-display {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.credits-display h3 {
+  color: var(--light-text);
+  margin-bottom: 0.3rem;
+}
+
+.credits-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.9;
 }
 
 /* Cursos */
@@ -186,19 +230,34 @@ h2 {
   border-radius: 8px;
   background-color: var(--gray-light);
   border-left: 4px solid var(--primary-color);
+  border: 1px solid var(--border-color);
 }
 
 .course.completed {
-  background-color: var(--accent-color);
-  border-left-color: #2d5016;
+  background-color: #e8f5e9;
+  border-left-color: var(--accent-color);
+  font-weight: normal;
+}
+
+.course.completed h3 {
+  color: #1b5e20;
+}
+
+.course .status {
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: var(--gray-medium);
   font-weight: bold;
+}
+
+.course.completed .status {
+  color: var(--accent-color);
 }
 
 /* Botões de filtro */
 #course-filters {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 
@@ -209,28 +268,29 @@ h2 {
   background-color: var(--primary-color);
   color: var(--light-text);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
+  border: 1px solid var(--primary-color);
 }
 
-#course-filters button:hover,
-#course-filters button.active {
+#course-filters button:hover {
   background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+#course-filters button.active {
+  background-color: var(--accent-color);
+  color: #000000;
+  border-color: var(--accent-color);
+  font-weight: bold;
 }
 
 #course-filters button:active {
   transform: translateY(1px);
 }
 
-/* Status do curso */
-.course .status {
-  font-style: italic;
-  margin-top: 0.5rem;
-  color: #555;
-}
-
-.course.completed .status {
-  color: #2d5016;
-  font-weight: bold;
+/* Outras seções */
+.learning-section, .resources-section {
+  background-color: var(--card-background);
 }
 
 /* FOOTER */
@@ -265,7 +325,7 @@ footer {
   text-decoration: none;
   padding: 0.3rem;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -295,7 +355,7 @@ footer {
 
 #lastModified {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   display: block;
 }
 
@@ -317,5 +377,13 @@ footer {
   .social svg {
     width: 16px;
     height: 16px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
   }
 }
