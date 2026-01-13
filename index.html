@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="WDD231 Course Home Page for Emerson Ronald Pereira - Web and Computer Programming certificate courses, projects, and learning resources">
+  <meta name="description" content="WDD231 Course Home Page for Emerson Ronald Pereira - 
+  Web and Computer Programming certificate courses, projects, and learning resources">
   <meta name="author" content="Emerson Ronald Pereira">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,7 +38,7 @@
           <span class="close-icon">✕</span>
         </button>
         
-        <!-- Navegação - MEIO (desktop) - AGORA DENTRO DO HEADER-CONTAINER -->
+        <!-- Navegação - MEIO (desktop) -->
         <nav id="nav">
           <ul>
             <li><a href="index.html" class="active">Home</a></li>
@@ -54,23 +55,28 @@
     <main class="content">
       <h1>Home</h1>
 
-      <section>
+      <section class="course-section">
         <h2>Course Information</h2>
-        <div id="course-filters">
-          <button data-filter="all">All</button>
-          <button data-filter="wdd">WDD</button>
-          <button data-filter="cse">CSE</button>
+        <div class="course-controls">
+          <div id="course-filters">
+            <button data-filter="all" class="active">All</button>
+            <button data-filter="wdd">WDD</button>
+            <button data-filter="cse">CSE</button>
+          </div>
+          <div class="credits-display">
+            <h3>Total Credits: <span id="totalCredits">0</span></h3>
+            <p class="credits-subtitle">Calculated</p>
+          </div>
         </div>
         <div id="courses"></div>
-        <p>Total Credits: <span id="totalCredits"></span></p>
       </section>
 
-      <section>
+      <section class="learning-section">
         <h2>Learning Activities</h2>
         <p>Weekly learning activities and hands-on development tasks.</p>
       </section>
 
-      <section>
+      <section class="resources-section">
         <h2>Resources</h2>
         <p>Helpful references, tools, and documentation.</p>
       </section>
