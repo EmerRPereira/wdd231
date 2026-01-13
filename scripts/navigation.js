@@ -1,7 +1,5 @@
 const menuButton = document.querySelector("#menu");
 const nav = document.querySelector("#nav");
-const hamburgerIcon = document.querySelector(".hamburger-icon");
-const closeIcon = document.querySelector(".close-icon");
 
 // Função para verificar se está em mobile
 function isMobile() {
