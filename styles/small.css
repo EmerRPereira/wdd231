@@ -68,8 +68,8 @@ header {
 
 /* Botão hamburger - VISÍVEL APENAS MOBILE */
 .hamburger {
-  background: none;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: var(--secondary-color);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   color: var(--light-text);
   cursor: pointer;
   width: 44px;
@@ -81,7 +81,6 @@ header {
   flex-shrink: 0;
   z-index: 101;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger .close-icon {
