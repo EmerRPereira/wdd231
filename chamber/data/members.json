@@ -1,0 +1,68 @@
+{
+  "members": [
+    {
+      "name": "Curitiba Tech Solutions",
+      "address": "Av. Sete de Setembro, 1000",
+      "phone": "(41) 3333-1111",
+      "website": "https://ctech.com.br",
+      "image": "ctba-tech.jpg",
+      "membership": 3
+    },
+    {
+      "name": "Paraná Green Foods",
+      "address": "Rua das Flores, 250",
+      "phone": "(41) 3333-2222",
+      "website": "https://greenfoods.com.br",
+      "image": "green-ctba.jpg",
+      "membership": 2
+    },
+    {
+      "name": "Educa Mais",
+      "address": "Rua XV de Novembro, 800",
+      "phone": "(41) 3333-3333",
+      "website": "https://educamais.org",
+      "image": "educar-ctba.jpg",
+      "membership": 1
+    },
+    {
+      "name": "Construtora Araucária",
+      "address": "Av. República Argentina, 900",
+      "phone": "(41) 3333-4444",
+      "website": "https://araucaria.com.br",
+      "image": "construct-ctba.jpg",
+      "membership": 3
+    },
+    {
+      "name": "Saúde Viva Clínica",
+      "address": "Rua Mateus Leme, 400",
+      "phone": "(41) 3333-5555",
+      "website": "https://saudeviva.com.br",
+      "image": "clinic-ctba.jpg",
+      "membership": 2
+    },
+    {
+      "name": "Livraria Saber",
+      "address": "Rua Barão do Rio Branco, 150",
+      "phone": "(41) 3333-6666",
+      "website": "https://livrariasaber.com.br",
+      "image": "bookstore-ctba.jpg",
+      "membership": 1
+    },
+    {
+      "name": "Inova Marketing",
+      "address": "Av. Batel, 1200",
+      "phone": "(41) 3333-7777",
+      "website": "https://inovamkt.com.br",
+      "image": "inovamark-ctba.jpg",
+      "membership": 3
+    },
+    {
+      "name": "Sorveteria DachsIce",
+      "address": "Rua Waldemiro Pedoroso, 1668",
+      "phone": "(41) 3423-2019",
+      "website": "https://dachsice.com.br",
+      "image": "dachsice-ctba.jpg",
+      "membership": 3
+    }
+  ]
+}
