@@ -1,8 +1,6 @@
 @media (min-width: 768px) {
 
-  /* =========================
-     HEADER & NAV
-  ========================= */
+  /* NAV */
   #menu {
     display: none;
   }
@@ -16,36 +14,17 @@
     gap: 1rem;
   }
 
-  nav a {
-    padding: 0.5rem 0.75rem;
-  }
-
-  /* =========================
-     HOME GRID
-  ========================= */
+  /* HOME GRID */
   .home-grid {
     grid-template-columns: 2fr 1fr 1fr;
   }
 
-  /* =========================
-     SPOTLIGHTS
-  ========================= */
+  /* SPOTLIGHTS */
   .spotlights {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* =========================
-     FOOTER
-  ========================= */
-  footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-}
-
-
-@media (min-width: 768px) {
+  /* DIRECTORY */
   #members.grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -55,5 +34,12 @@
     grid-template-columns: 150px 1fr;
     gap: 1rem;
     text-align: left;
+  }
+
+  /* FOOTER */
+  footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 }
