@@ -1,5 +1,5 @@
 /* =========================
-   GLOBAL
+   GLOBAL small.css
 ========================= */
 :root {
   --primary: #2f4f4f;
@@ -34,11 +34,11 @@ header {
 }
 
 .header-content {
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
 }
 
 header img {
@@ -76,7 +76,6 @@ nav a.active {
   color: white;
 }
 
-/* JS toggles this */
 nav.open {
   display: block;
 }
@@ -116,15 +115,59 @@ nav.open {
 
 .home-grid section {
   background-color: var(--secondary);
-  padding: 1rem;
+  padding: 0;
 }
 
+/* TARJA PADRÃO (Events, Weather, Forecast) */
 .home-grid h2 {
-  margin-top: 0;
+  margin: 0;
   background-color: var(--accent);
   color: white;
-  padding: 0.4rem;
+  padding: 0.5rem;
   font-size: 1rem;
+  text-align: left;
+}
+
+/* =========================
+   WEATHER & FORECAST
+========================= */
+
+/* NÃO centraliza o h2 */
+.weather,
+.forecast {
+  display: block;
+}
+
+/* Conteúdo interno centralizado */
+.weather-data,
+.forecast-data {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.weather-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weather-content img {
+  width: 60px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.weather-info p,
+.forecast-data p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
 }
 
 /* =========================
@@ -169,8 +212,9 @@ footer p {
   content: "✕";
 }
 
-
-/* DIRECTORY */
+/* =========================
+   DIRECTORY
+========================= */
 .view-buttons {
   text-align: center;
   margin: 1rem;
