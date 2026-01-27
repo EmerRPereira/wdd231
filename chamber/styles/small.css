@@ -247,3 +247,26 @@ footer p {
   max-width: 100px;
   margin: 0 auto 0.5rem;
 }
+
+.events {
+  display: block;
+}
+
+/* Conteúdo interno da Events */
+.events-content {
+  padding: 1rem;
+}
+
+.events-content p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+.spotlight img {
+  margin: 0 auto 0.5rem;
+}
+
+.member-card img {
+  max-width: 100px;
+  margin: 0 auto 0.5rem;
+}
