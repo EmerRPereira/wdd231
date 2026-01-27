@@ -2,17 +2,17 @@
 
 /* Reset e variáveis - CORRIGIDO PARA CONTRASTE AA */
 :root {
-  --primary-color: #003366; /* Mais escuro para melhor contraste */
-  --secondary-color: #0056b3; /* Mais escuro para AA */
-  --accent-color: #4c8c4c; /* Verde mais escuro para AA */
-  --accent-light: #a7c957;
-  --text-color: #222222; /* Texto mais escuro */
+  --primary-color: #003366;      /* OK */
+  --secondary-color: #004a99;    /* ligeiramente mais escuro */
+  --accent-color: #2e7d32;       /* verde mais escuro (AA garantido) */
+  --accent-light: #a7c957;       /* usar só para fundo, nunca texto */
+  --text-color: #1a1a1a;         /* texto principal */
   --light-text: #ffffff;
   --background-color: #f8f9fa;
   --card-background: #ffffff;
   --gray-light: #f0f0f0;
-  --gray-medium: #666666;
-  --border-color: #dddddd;
+  --gray-medium: #444444;        /* MAIS ESCURO */
+  --border-color: #c0c0c0;
 }
 
 * {
@@ -277,7 +277,7 @@ h3 {
 
 #course-filters button.active {
   background-color: var(--accent-color);
-  color: #000000;
+  color: var(--light-text); /* branco */
   border-color: var(--accent-color);
   font-weight: bold;
 }
@@ -323,7 +323,7 @@ footer {
   text-decoration: none;
   padding: 0.3rem;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: center;
