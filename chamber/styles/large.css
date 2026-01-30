@@ -1,5 +1,6 @@
-/* Large Screen Styles */
-
+/* =========================
+   LARGE SCREEN STYLES
+========================= */
 @media (min-width: 768px) {
 
   /* NAV */
@@ -44,6 +45,16 @@
     align-items: start;
   }
 
+  /* THANK YOU */
+  main.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .thankyou-card {
+    max-width: 800px;
+  }
+
   /* FOOTER */
   footer {
     display: grid;
@@ -66,19 +77,4 @@
   .footer-info {
     text-align: right;
   }
-
-  /* ================================
-   THANK YOU PAGE (LARGE VIEW)
-   ================================ */
-
-main.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 1.5cm;
-}
-
-.thankyou-card {
-  max-width: 800px;
-}
-
 }
