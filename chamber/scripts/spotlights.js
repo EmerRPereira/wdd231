@@ -1,3 +1,10 @@
+/*****************************************************
+ * scripts/spotlights.js
+ * WDD231 – Chamber Home Page
+ * Member Spotlights
+ * Author: Emerson Ronald Pereira
+ *****************************************************/
+
 const spotlightContainer = document.querySelector(".spotlights");
 const dataURL = "data/members.json";
 
