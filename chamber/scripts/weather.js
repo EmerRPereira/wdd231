@@ -2,6 +2,7 @@
  * scripts/weather.js
  * WDD231 – Chamber Home Page
  * Weather + 3 Day Forecast
+ * Author: Emerson Ronald Pereira
  * Location: Curitiba, Brazil
  *****************************************************/
 
