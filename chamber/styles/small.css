@@ -1,5 +1,5 @@
 /* =========================
-   GLOBAL
+   GLOBAL small.css
 ========================= */
 :root {
   --primary: #2f4f4f;
@@ -172,7 +172,7 @@ nav a.active {
 }
 
 /* =========================
-   SPOTLIGHTS (ÚNICA DEFINIÇÃO)
+   SPOTLIGHTS
 ========================= */
 .spotlights {
   display: grid;
@@ -317,50 +317,4 @@ footer {
 
 footer p {
   margin: 0.3rem 0;
-}
-
-/* =========================
-   LARGE SCREENS
-========================= */
-@media (min-width: 768px) {
-
-  #menu {
-    display: none;
-  }
-
-  nav {
-    display: block;
-  }
-
-  nav ul {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .home-grid {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
-
-  .spotlights {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  #members.grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .join-layout {
-    grid-template-columns: 2fr 1fr;
-  }
-
-  footer {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 1rem;
-  }
-}
-
-.submitted-info p {
-  line-height: 1.6;
-  margin-bottom: 0.4rem;
 }
