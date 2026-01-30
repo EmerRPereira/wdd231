@@ -1,37 +1,61 @@
-<!-- *********************************
-  * chamber/join.html
-  * WDD231 – Chamber Join Page
-  * Membership Application Form
-  * Author: Emerson Ronald Pereira
-  ************************************ -->
+<!-- **********************************************
+ * chamber/join.html
+ * WDD231 – Chamber Join Page
+ * Membership Application Form
+ * Author: Emerson Ronald Pereira
+ *********************************************** -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Join the Curitiba Chamber of Commerce">
-  <meta name="author" content="Emerson Ronald Pereira">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Join the Curitiba Chamber of Commerce and gain visibility, networking opportunities, and exclusive business benefits for your organization.">
+  <meta name="author" content="Emerson Ronald Pereira">
 
-  <title>Join | Curitiba Chamber</title>
+  <title>Join | Curitiba Chamber of Commerce</title>
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Join the Curitiba Chamber of Commerce">
+  <meta property="og:description"
+        content="Apply for membership in the Curitiba Chamber of Commerce and access exclusive networking, visibility, and growth opportunities.">
+  <meta property="og:image"
+        content="https://emerrpereira.github.io/wdd231/chamber/images/favicon.ico">
+  <meta property="og:url"
+        content="https://emerrpereira.github.io/wdd231/chamber/join.html">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
   <link rel="stylesheet" href="styles/large.css">
 
+  <!-- JS -->
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/date.js" defer></script>
   <script src="scripts/join.js" defer></script>
 </head>
 
 <body>
+
 <header>
   <div class="header-content">
     <img src="images/favicon.ico" alt="Chamber Logo">
     <h1>Curitiba Chamber of Commerce</h1>
 
     <button id="menu" aria-label="Open Menu"></button>
+
     <nav>
       <ul class="navigation">
         <li><a href="index.html">Home</a></li>
@@ -44,60 +68,47 @@
 </header>
 
 <main class="join-layout">
+
   <!-- FORM -->
   <form method="get" action="thankyou.html" class="join-form">
     <h2>Membership Application</h2>
 
     <label>
       First Name
-      <input type="text" name="fname" title="First Name" autocomplete="given-name" required>
+      <input type="text" name="fname" required autocomplete="given-name">
     </label>
 
     <label>
       Last Name
-      <input type="text" name="lname" title="Last Name" autocomplete="family-name" required>
+      <input type="text" name="lname" required autocomplete="family-name">
     </label>
 
     <label>
       Organizational Title
       <input type="text"
              name="orgtitle"
-             title="Organization Title"
              autocomplete="organization-title"
              pattern="[A-Za-z\s\-]{7,}">
     </label>
 
     <label>
       Email
-      <input type="email"
-             name="email"
-             title="Email Address"
-             autocomplete="email"
-             placeholder="example@email.com"
-             required>
+      <input type="email" name="email" required autocomplete="email">
     </label>
 
     <label>
       Mobile Phone
-      <input type="tel"
-             name="phone"
-             title="Mobile Phone"
-             autocomplete="tel"
-             required>
+      <input type="tel" name="phone" required autocomplete="tel">
     </label>
 
     <label>
       Organization Name
-      <input type="text"
-             name="organization"
-             title="Organization Name"
-             autocomplete="organization"
-             required>
+      <input type="text" name="organization" required autocomplete="organization">
     </label>
 
     <label>
       Membership Level
-      <select name="membership" title="Membership Level" required>
+      <select name="membership" required>
         <option value="">Select a level</option>
         <option value="np">NP Membership</option>
         <option value="bronze">Bronze</option>
@@ -108,13 +119,11 @@
 
     <label>
       Organization Description
-      <textarea name="description" title="Organization Description"></textarea>
+      <textarea name="description"></textarea>
     </label>
 
-    <!-- TIMESTAMP -->
     <input type="hidden" name="timestamp" id="timestamp">
-
-    <input type="submit" value="Apply for Membership">
+    <button type="submit">Apply for Membership</button>
   </form>
 
   <!-- MEMBERSHIP CARDS -->
@@ -122,52 +131,53 @@
     <article class="join-card">
       <h3>NP Membership</h3>
       <p>No fee for non-profits.</p>
-      <a href="#" onclick="document.getElementById('npModal').showModal()">View Benefits</a>
+      <button data-modal="npModal">View Benefits</button>
     </article>
 
     <article class="join-card">
       <h3>Bronze</h3>
       <p>Entry-level visibility.</p>
-      <a href="#" onclick="document.getElementById('bronzeModal').showModal()">View Benefits</a>
+      <button data-modal="bronzeModal">View Benefits</button>
     </article>
 
     <article class="join-card">
       <h3>Silver</h3>
       <p>More exposure and discounts.</p>
-      <a href="#" onclick="document.getElementById('silverModal').showModal()">View Benefits</a>
+      <button data-modal="silverModal">View Benefits</button>
     </article>
 
     <article class="join-card">
       <h3>Gold</h3>
       <p>Maximum exposure.</p>
-      <a href="#" onclick="document.getElementById('goldModal').showModal()">View Benefits</a>
+      <button data-modal="goldModal">View Benefits</button>
     </article>
   </section>
+
 </main>
 
 <!-- MODALS -->
 <dialog id="npModal">
   <h3>NP Membership Benefits</h3>
   <p>Free listing, community events.</p>
-  <button onclick="this.closest('dialog').close()">Close</button>
+  <button class="close-modal">Close</button>
 </dialog>
 
 <dialog id="bronzeModal">
   <h3>Bronze Benefits</h3>
   <p>Directory listing, networking events.</p>
-  <button onclick="this.closest('dialog').close()">Close</button>
+  <button class="close-modal">Close</button>
 </dialog>
 
 <dialog id="silverModal">
   <h3>Silver Benefits</h3>
   <p>Advertising spots, event discounts.</p>
-  <button onclick="this.closest('dialog').close()">Close</button>
+  <button class="close-modal">Close</button>
 </dialog>
 
 <dialog id="goldModal">
   <h3>Gold Benefits</h3>
   <p>Homepage spotlight, premium events.</p>
-  <button onclick="this.closest('dialog').close()">Close</button>
+  <button class="close-modal">Close</button>
 </dialog>
 
 <footer>
@@ -195,5 +205,6 @@
         <p id="lastModified">Last Modified: </p>
     </div>
 </footer>
+
 </body>
 </html>
