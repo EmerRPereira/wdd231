@@ -1,0 +1,43 @@
+<!-- *********************************
+  * chamber/thankyou.html
+  * WDD231 – Chamber Thank You Page
+  * Displays Submitted Form Data   
+  * Author: Emerson Ronald Pereira
+  ************************************ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Emerson Ronald Pereira">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thank You | Curitiba Chamber</title>
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/large.css">
+
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById("output").innerHTML = `
+        <p><strong>Name:</strong> ${params.get("fname")} ${params.get("lname")}</p>
+        <p><strong>Email:</strong> ${params.get("email")}</p>
+        <p><strong>Phone:</strong> ${params.get("phone")}</p>
+        <p><strong>Organization:</strong> ${params.get("organization")}</p>
+        <p><strong>Date Submitted:</strong> ${params.get("timestamp")}</p>
+      `;
+    });
+  </script>
+</head>
+
+<body>
+<main class="thankyou">
+  <h2>Thank You for Joining!</h2>
+  <p>We appreciate your interest in the Curitiba Chamber of Commerce.</p>
+
+  <section id="output"></section>
+</main>
+</body>
+</html>
