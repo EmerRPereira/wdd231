@@ -1,3 +1,5 @@
+/* Large Screen Styles */
+
 @media (min-width: 768px) {
 
   /* NAV */
@@ -36,10 +38,47 @@
     text-align: left;
   }
 
+  /* JOIN */
+  .join-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
   /* FOOTER */
   footer {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+    gap: 1rem;
+    text-align: center;
   }
+
+  .footer-adress {
+    text-align: left;
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .footer-info {
+    text-align: right;
+  }
+
+  /* ================================
+   THANK YOU PAGE (LARGE VIEW)
+   ================================ */
+
+main.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5cm;
+}
+
+.thankyou-card {
+  max-width: 800px;
+}
+
 }
