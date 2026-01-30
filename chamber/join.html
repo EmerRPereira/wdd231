@@ -71,60 +71,95 @@
 
   <!-- FORM -->
   <form method="get" action="thankyou.html" class="join-form">
-    <h2>Membership Application</h2>
+  <h2>Membership Application</h2>
 
-    <label>
-      First Name
-      <input type="text" name="fname" required autocomplete="given-name">
-    </label>
+  <label>
+    First Name
+    <input
+      type="text"
+      name="fname"
+      required
+      autocomplete="given-name"
+      title="Enter your first name">
+  </label>
 
-    <label>
-      Last Name
-      <input type="text" name="lname" required autocomplete="family-name">
-    </label>
+  <label>
+    Last Name
+    <input
+      type="text"
+      name="lname"
+      required
+      autocomplete="family-name"
+      title="Enter your last name">
+  </label>
 
-    <label>
-      Organizational Title
-      <input type="text"
-             name="orgtitle"
-             autocomplete="organization-title"
-             pattern="[A-Za-z\s\-]{7,}">
-    </label>
+  <label>
+    Organizational Title
+    <input
+      type="text"
+      name="orgtitle"
+      autocomplete="organization-title"
+      pattern="[A-Za-z\s\-]{7,}"
+      title="Enter your organizational title (minimum 7 characters)">
+  </label>
 
-    <label>
-      Email
-      <input type="email" name="email" required autocomplete="email">
-    </label>
+  <label>
+    Email Address
+    <input
+      type="email"
+      name="email"
+      required
+      autocomplete="email"
+      placeholder="name@example.com"
+      title="Enter a valid email address">
+  </label>
 
-    <label>
-      Mobile Phone
-      <input type="tel" name="phone" required autocomplete="tel">
-    </label>
+  <label>
+    Mobile Phone
+    <input
+      type="tel"
+      name="phone"
+      required
+      autocomplete="tel"
+      title="Enter your mobile phone number">
+  </label>
 
-    <label>
-      Organization Name
-      <input type="text" name="organization" required autocomplete="organization">
-    </label>
+  <label>
+    Organization Name
+    <input
+      type="text"
+      name="organization"
+      required
+      autocomplete="organization"
+      title="Enter your organization name">
+  </label>
 
-    <label>
-      Membership Level
-      <select name="membership" required>
-        <option value="">Select a level</option>
-        <option value="np">NP Membership</option>
-        <option value="bronze">Bronze</option>
-        <option value="silver">Silver</option>
-        <option value="gold">Gold</option>
-      </select>
-    </label>
+  <label>
+    Membership Level
+    <select
+      name="membership"
+      required
+      title="Select a membership level">
+      <option value="">Select a level</option>
+      <option value="np">NP Membership</option>
+      <option value="bronze">Bronze</option>
+      <option value="silver">Silver</option>
+      <option value="gold">Gold</option>
+    </select>
+  </label>
 
-    <label>
-      Organization Description
-      <textarea name="description"></textarea>
-    </label>
+  <label>
+    Organization Description
+    <textarea
+      name="description"
+      title="Provide a brief description of your organization"></textarea>
+  </label>
 
-    <input type="hidden" name="timestamp" id="timestamp">
-    <button type="submit">Apply for Membership</button>
-  </form>
+  <input type="hidden" name="timestamp" id="timestamp">
+
+  <button type="submit">Apply for Membership</button>
+</form>
+
 
   <!-- MEMBERSHIP CARDS -->
   <section class="membership-cards">
