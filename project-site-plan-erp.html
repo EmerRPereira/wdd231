@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DachsIce – Individual Project Site Plan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<header>
+  <h1>DachsIce – Individual Project Site Plan</h1>
+  <p>WDD231 – Web Frontend Development</p>
+</header>
+
+<main>
+  <!-- Sections -->
+    <section>
+        <h2>1. Site Name</h2>
+        <p><strong>DachsIce</strong></p>
+
+        <p>
+            The name <strong>DachsIce</strong> was selected because it is short, memorable, 
+            and strongly associated with the identity of an ice cream business. 
+            The name allows for playful branding while remaining easy to recognize 
+            and suitable for a commercial website.
+        </p>
+
+        <p><em>Optional domain availability:</em> dachsice.com</p>
+    </section>
+    <section>
+        <h2>2. Site Purpose</h2>
+
+        <p>
+            The purpose of the DachsIce website is to provide an informational and interactive
+            platform for a fictional ice cream shop. The site will present the business,
+            display products with prices and descriptions, and allow users to build
+            and manage an order using dynamic JavaScript features.
+        </p>
+
+        <p>
+            The website will also integrate external data through a weather API,
+            displaying current conditions and a three-day forecast on the home page
+            to enhance contextual relevance and demonstrate API usage.
+        </p>
+
+        <p>
+            The website will consist of three primary pages: a Home page (index.html),
+            a Products page displaying available ice cream options, and an Order page
+            where users can build and manage their orders.
+        </p>
+
+        <p>
+            An HTML order form will be implemented to collect user input and will submit
+            data to a form action page for display, following course standards.
+        </p>
+
+
+    </section>
+    <section>
+        <h2>3. Scenarios</h2>
+
+        <ul>
+            <li>What ice cream products does DachsIce offer, 
+                and how much does each item cost?</li>
+            <li>How can I build an order, customize it with toppings, 
+                and see the total price?</li>
+            <li>What is the current weather, 
+                and is today a good day to visit the ice cream shop?</li>
+        </ul>
+    </section>
+    <section>
+        <h2>4. Color Scheme</h2>
+
+        <ul>
+            <li>
+            <strong style="color:#FF6CA8;">Pink (#FF6CA8)</strong> – 
+            Used for headings, primary buttons, and call-to-action elements.
+            </li>
+            <li>
+            <strong style="color:#6ECFF6;">Light Blue (#6ECFF6)</strong> – 
+            Used for accents, secondary buttons, and highlights.
+            </li>
+            <li>
+            <strong>White (#FFFFFF)</strong> – 
+            Used as the main background color to ensure readability and contrast.
+            </li>
+        </ul>
+
+        <p>This color scheme reflects a fun, fresh, and friendly brand identity
+            appropriate for an ice cream shop.</p>
+    </section>
+    <section>
+        <h2>5. Typography</h2>
+
+        <ul>
+            <li>
+            <strong>Montserrat</strong> – Used for headings and section titles.
+            </li>
+            <li>
+            <strong>Poppins</strong> – Used for body text, product descriptions, and forms.
+            </li>
+        </ul>
+
+        <p>
+            This font combination ensures clarity, readability, and a modern appearance,
+            aligning with web accessibility and usability best practices.
+        </p>
+    </section>
+    <section>
+        <h2>6. Wireframes</h2>
+
+        <h3>Mobile View</h3>
+        <pre>
+        LOGO        ☰
+        Hero Section
+        Weather Summary
+        Product Cards
+        (1 column)
+        Order Button
+        Footer
+        </pre>
+
+        <h3>Desktop / Tablet View</h3>
+        <pre>
+        LOGO | Home | Products | Order | Contact
+        Hero Section + Weather Widget
+        Product Grid (2–3 columns)
+        Order Form + Cart Sidebar
+        Footer
+        </pre>
+    </section>
+    <section>
+        <h2>7. UX and Performance Considerations</h2>
+
+        <ul>
+            <li>Lazy loading will be applied to images below the fold.</li>
+            <li>Explicit width and height attributes will be used to reduce layout shifts.</li>
+            <li>JavaScript will be loaded with the <code>defer</code> attribute.</li>
+            <li>LocalStorage will be used to persist user preferences and cart data.</li>
+            <li>The site will be tested using Lighthouse for performance, accessibility,
+                best practices, and SEO.</li>
+        </ul>
+
+        <p>
+            Performance metrics such as First Contentful Paint (FCP),
+            Largest Contentful Paint (LCP), and Cumulative Layout Shift (CLS)
+            will be considered during development.
+        </p>
+
+        <p>
+            JavaScript will be used to fetch external data, dynamically generate content,
+            manage application state with localStorage, handle user interactions,
+            and implement modal dialogs using ES Modules.
+        </p>
+
+    </section>
+
+
+</main>
+
+<footer>
+    <p>Author: Emerson Ronald Pereira</p>
+</footer>
+
+</body>
+</html>
