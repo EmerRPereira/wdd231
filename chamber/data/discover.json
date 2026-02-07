@@ -1,0 +1,52 @@
+{
+  "discoverItems": [
+    {
+      "title": "Jardim Botânico",
+      "address": "Rua Eng. Ostoja Roguski, Curitiba",
+      "description": "One of the most iconic landmarks of Curitiba, known for its glass greenhouse and botanical collections.",
+      "image": "images/discover/jardim-botanico-ctba.webp"
+    },
+    {
+      "title": "Ópera de Arame",
+      "address": "Rua João Gava, Curitiba",
+      "description": "A unique steel-structured theater surrounded by nature and water.",
+      "image": "images/discover/opera-de-arame-ctba.webp"
+    },
+    {
+      "title": "Museu Oscar Niemeyer",
+      "address": "Rua Marechal Hermes, Curitiba",
+      "description": "Known as the Eye Museum, it showcases modern art, architecture, and design.",
+      "image": "images/discover/museu-oscar-niemeyer-mon-ctba.webp"
+    },
+    {
+      "title": "Parque Barigui",
+      "address": "Av. Cândido Hartmann, Curitiba",
+      "description": "A large urban park popular for outdoor activities and wildlife observation.",
+      "image": "images/discover/pq-barigui-ctba.webp"
+    },
+    {
+      "title": "Centro Histórico",
+      "address": "Largo da Ordem, Curitiba",
+      "description": "Historic district with colonial architecture, museums, and cultural fairs.",
+      "image": "images/discover/centro-historico-ctba.webp"
+    },
+    {
+      "title": "Rua XV de Novembro",
+      "address": "Downtown Curitiba",
+      "description": "A pedestrian street filled with shops, cafés, and cultural attractions.",
+      "image": "images/discover/xv-de-novembro-ctba.webp"
+    },
+    {
+      "title": "Parque Tanguá",
+      "address": "Rua Oswaldo Maciel, Curitiba",
+      "description": "Scenic park with viewpoints, waterfalls, and walking paths.",
+      "image": "images/discover/pq-tangua-ctba.webp"
+    },
+    {
+      "title": "Bosque Alemão",
+      "address": "Rua Nicolo Paganini, Curitiba",
+      "description": "A cultural park inspired by German immigration and fairy tales.",
+      "image": "images/discover/bosque-alemao-ctba.webp"
+    }
+  ]
+}
