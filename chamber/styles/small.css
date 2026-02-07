@@ -1,5 +1,5 @@
-/* =========================
-   GLOBAL small.css
+/* ========================= 
+GLOBAL small.css 
 ========================= */
 :root {
   --primary: #2f4f4f;
@@ -26,8 +26,8 @@ img {
   display: block;
 }
 
-/* =========================
-   HEADER & NAV
+/* ========================= 
+HEADER & NAV 
 ========================= */
 header {
   background-color: var(--secondary);
@@ -87,8 +87,8 @@ nav a.active {
   color: #fff;
 }
 
-/* =========================
-   HERO
+/* ========================= 
+HERO 
 ========================= */
 .hero {
   position: relative;
@@ -110,8 +110,8 @@ nav a.active {
   font-weight: bold;
 }
 
-/* =========================
-   HOME GRID
+/* ========================= 
+HOME GRID 
 ========================= */
 .home-grid {
   display: grid;
@@ -132,8 +132,8 @@ nav a.active {
   font-size: 1rem;
 }
 
-/* =========================
-   WEATHER & FORECAST
+/* ========================= 
+WEATHER & FORECAST 
 ========================= */
 .weather,
 .forecast {
@@ -171,8 +171,8 @@ nav a.active {
   line-height: 1.5;
 }
 
-/* =========================
-   SPOTLIGHTS
+/* ========================= 
+SPOTLIGHTS 
 ========================= */
 .spotlights {
   display: grid;
@@ -203,8 +203,8 @@ nav a.active {
   margin: 0 auto 0.5rem;
 }
 
-/* =========================
-   DIRECTORY
+/* ========================= 
+DIRECTORY 
 ========================= */
 .view-buttons {
   text-align: center;
@@ -243,8 +243,8 @@ nav a.active {
   min-height: 300px;
 }
 
-/* =========================
-   JOIN PAGE
+/* ========================= 
+JOIN PAGE 
 ========================= */
 .join-layout {
   display: grid;
@@ -274,9 +274,17 @@ nav a.active {
   animation: joinFade 0.8s ease forwards;
 }
 
-.join-card:nth-child(2) { animation-delay: 0.2s; }
-.join-card:nth-child(3) { animation-delay: 0.4s; }
-.join-card:nth-child(4) { animation-delay: 0.6s; }
+.join-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.join-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.join-card:nth-child(4) {
+  animation-delay: 0.6s;
+}
 
 @keyframes joinFade {
   to {
@@ -285,8 +293,8 @@ nav a.active {
   }
 }
 
-/* =========================
-   THANK YOU PAGE
+/* ========================= 
+THANK YOU PAGE 
 ========================= */
 main.container {
   padding-left: 1.5cm;
@@ -305,8 +313,8 @@ main.container {
   margin-bottom: 0.4rem;
 }
 
-/* =========================
-   FOOTER
+/* ========================= 
+FOOTER 
 ========================= */
 footer {
   background-color: var(--secondary);
@@ -317,4 +325,85 @@ footer {
 
 footer p {
   margin: 0.3rem 0;
+}
+
+/* =========================
+   DISCOVER PAGE
+========================= */
+
+.visit-message {
+  background-color: var(--secondary);
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.discover-grid {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-areas:
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6"
+    "card7"
+    "card8";
+}
+
+.discover-card {
+  background-color: var(--secondary);
+  overflow: hidden;
+}
+
+.discover-card h2,
+.discover-card address,
+.discover-card p,
+.discover-card button {
+  padding: 0 1rem;
+}
+
+.discover-card h2 {
+  padding-top: 1rem;
+}
+
+.discover-card button {
+  margin: 0.5rem 1rem 1rem;
+}
+
+
+.discover-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+.discover-card address {
+  font-style: normal;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.discover-card figure {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.discover-card figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* =========================
+   JOIN PAGE – MOBILE PROXIMITY FIX
+========================= */
+@media (max-width: 640px) {
+  .join-layout {
+    margin-bottom: 2rem;
+  }
 }
