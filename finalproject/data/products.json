@@ -71,4 +71,54 @@
     "desc": { "pt": "Cobertura e tubete", "en": "Cover and tube" },
     "category": "Ice Cream"
   }
+  ,
+{
+  "id": "p10",
+  "name": { "pt": "Sundae Chocolate", "en": "Chocolate Sundae" },
+  "price": 12.00,
+  "image": "images/sundae-chocolate.webp",
+  "desc": { "pt": "Com calda e granulado", "en": "With syrup and sprinkles" },
+  "category": "Sundae"
+},
+{
+  "id": "p11",
+  "name": { "pt": "Sundae Morango", "en": "Strawberry Sundae" },
+  "price": 12.00,
+  "image": "images/sundae-morango.webp",
+  "desc": { "pt": "Com pedaços de morango", "en": "With strawberry pieces" },
+  "category": "Sundae"
+},
+{
+  "id": "p12",
+  "name": { "pt": "Milkshake Baunilha", "en": "Vanilla Milkshake" },
+  "price": 15.00,
+  "image": "images/milkshake-baunilha.webp",
+  "desc": { "pt": "Clássico e cremoso", "en": "Classic and creamy" },
+  "category": "Milkshake"
+},
+{
+  "id": "p13",
+  "name": { "pt": "Açaí 500ml", "en": "Açaí Bowl 500ml" },
+  "price": 24.00,
+  "image": "images/acai-500.webp",
+  "desc": { "pt": "Com frutas e granola", "en": "With fruits and granola" },
+  "category": "Açaí"
+},
+{
+  "id": "p14",
+  "name": { "pt": "Waffle Tradicional", "en": "Classic Waffle" },
+  "price": 20.00,
+  "image": "images/waffle-tradicional.webp",
+  "desc": { "pt": "Com sorvete e cobertura", "en": "With ice cream and topping" },
+  "category": "Waffle"
+},
+{
+  "id": "p15",
+  "name": { "pt": "Petit Gateau", "en": "Petit Gateau" },
+  "price": 22.00,
+  "image": "images/petit-gateau.webp",
+  "desc": { "pt": "Com sorvete de creme", "en": "With vanilla ice cream" },
+  "category": "Special"
+}
+
 ]
