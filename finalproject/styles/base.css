@@ -95,3 +95,9 @@ main {
   flex-direction: column;
   gap: 1rem;
 }
+
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
