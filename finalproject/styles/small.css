@@ -105,6 +105,11 @@ nav { justify-self: end; }
   color: var(--white);
 }
 
+#navigation a:focus {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px;
+}
+
 /* ===============================
    HERO
 ================================ */
