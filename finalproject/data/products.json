@@ -1,0 +1,74 @@
+[
+  {
+    "id": "p1",
+    "name": { "pt": "Casquinha Tradicional", "en": "Classic Cone" },
+    "price": 5.00,
+    "image": "images/casquinha.webp",
+    "desc": { "pt": "Creme, Mista ou Chocolate", "en": "Cream, Mixed or Chocolate" },
+    "category": "Ice Cream"
+  },
+  {
+    "id": "p2",
+    "name": { "pt": "Top Sundae 300ml (2 sabores)", "en": "300ml Top Sundae (2 flavors)" },
+    "price": 10.00,
+    "image": "images/topsundae-beaglemor.svg",
+    "desc": { "pt": "2 sabores", "en": "2 flavors" },
+    "category": "Sundae"
+  },
+  {
+    "id": "p3",
+    "name": { "pt": "Milkshake Chocolate", "en": "Chocolate Milkshake" },
+    "price": 15.00,
+    "image": "images/yorkshake-choc.svg",
+    "desc": { "pt": "Milkshake cremoso", "en": "Creamy milkshake" },
+    "category": "Milkshake"
+  },
+  {
+    "id": "p4",
+    "name": { "pt": "Açaí 300ml", "en": "Açaí Bowl 300ml" },
+    "price": 18.00,
+    "image": "images/showshow-acai.webp",
+    "desc": { "pt": "Com morangos e leite condensado", "en": "With strawberries and condensed milk" },
+    "category": "Açaí"
+  },
+  {
+    "id": "p5",
+    "name": { "pt": "Milkshake Morango", "en": "Strawberry Milkshake" },
+    "price": 15.00,
+    "image": "images/milkshake-mor.svg",
+    "desc": { "pt": "Com chantilly", "en": "With whipped cream" },
+    "category": "Milkshake"
+  },
+  {
+    "id": "p6",
+    "name": { "pt": "Panetone Gelado", "en": "Iced Panettone" },
+    "price": 6.50,
+    "image": "images/panetone-gelado.svg",
+    "desc": { "pt": "Monte o seu", "en": "Build your own" },
+    "category": "Special"
+  },
+  {
+    "id": "p7",
+    "name": { "pt": "Bubble Waffle", "en": "Bubble Waffle" },
+    "price": 26.00,
+    "image": "images/bubblecone.webp",
+    "desc": { "pt": "Waffle recheado", "en": "Filled waffle" },
+    "category": "Waffle"
+  },
+  {
+    "id": "p8",
+    "name": { "pt": "Crepe", "en": "Crepe" },
+    "price": 6.00,
+    "image": "images/crepe-1.svg",
+    "desc": { "pt": "Vários Sabores", "en": "Various flavors" },
+    "category": "Crepe"
+  },
+  {
+    "id": "p9",
+    "name": { "pt": "Cascão", "en": "Cascão" },
+    "price": 7.00,
+    "image": "images/cascao.svg",
+    "desc": { "pt": "Cobertura e tubete", "en": "Cover and tube" },
+    "category": "Ice Cream"
+  }
+]
