@@ -100,7 +100,7 @@
   "id": "p13",
   "name": { "pt": "Açaí 500ml", "en": "Açaí Bowl 500ml" },
   "price": 24.00,
-  "image": "images/acai-500.webp",
+  "image": "images/acai-500ml.webp",
   "desc": { "pt": "Com frutas e granola", "en": "With fruits and granola" },
   "category": "Açaí"
 },
