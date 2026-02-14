@@ -1,0 +1,423 @@
+/* ===============================
+   DachsIce - small.css
+================================ */
+
+:root {
+  --pink: #FF6CA8;
+  --light-blue: #6ECFF6;
+  --white: #FFFFFF;
+  --gray-light: #f3f3f3;
+  --gray-bg: #f9f9f9;
+}
+
+/* ===============================
+   BASE
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--pink);
+  margin: 0;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding-top: 110px; /* espaço header fixo */
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.site-header {
+  background: var(--white);
+  border-bottom: 3px solid var(--light-blue);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+nav {
+  justify-self: end;
+}
+
+#menu-button {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--pink);
+  display: block;
+  cursor: pointer;
+}
+
+#navigation {
+  display: none;
+}
+
+#navigation.open {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: var(--white);
+  border: 2px solid var(--light-blue);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+#navigation a {
+  font-size: 1.2rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  color: var(--pink);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#navigation a:hover,
+#navigation a.active {
+  background: var(--light-blue);
+  color: white;
+}
+
+/* ===============================
+   HERO
+================================ */
+
+.hero {
+  text-align: center;
+}
+
+.hero h2 {
+  margin-bottom: 1rem;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.cta-button,
+.checkout-btn,
+.card button {
+  background-color: var(--pink);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover,
+.checkout-btn:hover,
+.card button:hover {
+  background-color: var(--light-blue);
+}
+
+.clear-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  border: 1px solid #aaa;
+  background: white;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+
+/* ===============================
+   PRODUCTS GRID
+================================ */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.card {
+  background: var(--white);
+  border: 2px solid var(--light-blue);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: #f8f8f8;
+  padding: 10px;
+}
+
+.card .price {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ===============================
+   ORDER LAYOUT
+================================ */
+
+.order-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 5rem auto 0 auto; /* espaço do header */
+}
+
+.order-builder,
+.cart-section {
+  background: var(--gray-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--light-blue);
+  align-self: start;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.qty-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.qty-controls button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: var(--light-blue);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.cart-total {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* ===============================
+   ORDER TABLE (THANK YOU)
+================================ */
+
+.order-table {
+  margin-top: 1.5rem;
+  border: 2px solid var(--light-blue);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
+  padding: 0.8rem 1rem;
+}
+
+.table-header {
+  background: var(--light-blue);
+  color: white;
+  font-weight: bold;
+}
+
+.table-row:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.table-header span,
+.table-row span {
+  text-align: center;
+}
+
+.order-total {
+  margin-top: 1rem;
+  text-align: right;
+  color: var(--pink);
+  font-weight: bold;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+.site-footer {
+  background: var(--light-blue);
+  color: var(--white);
+  padding: 1.5rem 1rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (min-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .order-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ===============================
+   MODAL
+================================ */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.close-modal {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--pink);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+.toppings-section {
+  margin: 1rem 0;
+}
+
+.toppings-section label {
+  display: block;
+  margin: 0.4rem 0;
+  cursor: pointer;
+}
+
+.home-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: auto;
+}
+
+@media (min-width: 900px) {
+  .home-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.contact-card,
+.weather-card,
+.featured-card {
+  background: var(--gray-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--light-blue);
+}
+
+.featured-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
