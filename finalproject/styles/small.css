@@ -14,14 +14,12 @@
    BASE
 ================================ */
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--white);
-  color: #333; /* texto padrão escuro */
+  color: #333;
   margin: 0;
   line-height: 1.6;
   display: flex;
@@ -31,7 +29,7 @@ body {
 
 main {
   flex: 1;
-  padding-top: 110px; /* espaço header fixo */
+  padding-top: 110px;
 }
 
 /* ===============================
@@ -66,9 +64,7 @@ main {
   text-align: center;
 }
 
-nav {
-  justify-self: end;
-}
+nav { justify-self: end; }
 
 #menu-button {
   background: none;
@@ -79,9 +75,7 @@ nav {
   cursor: pointer;
 }
 
-#navigation {
-  display: none;
-}
+#navigation { display: none; }
 
 #navigation.open {
   display: flex;
@@ -108,20 +102,16 @@ nav {
 #navigation a:hover,
 #navigation a.active {
   background: var(--light-blue);
-  color: white;
+  color: var(--white);
 }
 
 /* ===============================
    HERO
 ================================ */
 
-.hero {
-  text-align: center;
-}
+.hero { text-align: center; }
 
-.hero h2 {
-  margin-bottom: 1rem;
-}
+.hero h2 { margin-bottom: 1rem; }
 
 /* ===============================
    BUTTONS
@@ -150,7 +140,7 @@ nav {
   padding: 0.8rem 1.5rem;
   border-radius: 25px;
   border: 1px solid #aaa;
-  background: white;
+  background: var(--white);
   cursor: pointer;
 }
 
@@ -162,23 +152,42 @@ nav {
 }
 
 /* ===============================
-   PRODUCTS GRID
+   GRID LAYOUTS
 ================================ */
 
-.products-grid {
+.products-grid,
+.home-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  padding: 2rem 1rem;
+  gap: 2rem;
   max-width: 1400px;
   margin: auto;
 }
 
+.products-grid {
+  grid-template-columns: 1fr;
+  padding: 2rem 1rem;
+}
+
+.home-grid {
+  padding: 2rem;
+}
+
+/* ===============================
+   CARDS
+================================ */
+
+.card,
+.contact-card,
+.weather-card,
+.featured-card {
+  background: var(--gray-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--light-blue);
+}
+
 .card {
   background: var(--white);
-  border: 2px solid var(--light-blue);
-  border-radius: 12px;
-  padding: 1.2rem;
   text-align: center;
   box-shadow: 0 6px 12px rgba(0,0,0,0.08);
   display: flex;
@@ -187,16 +196,18 @@ nav {
   transition: 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+.card:hover { transform: translateY(-5px); }
 
-.card img {
+.card img,
+.featured-card img {
   width: 100%;
   height: 220px;
   object-fit: contain;
-  border-radius: 10px;
   margin-bottom: 1rem;
+}
+
+.card img {
+  border-radius: 10px;
   background: #f8f8f8;
   padding: 10px;
 }
@@ -216,7 +227,7 @@ nav {
   gap: 2rem;
   padding: 2rem;
   max-width: 1400px;
-  margin: 5rem auto 0 auto; /* espaço do header */
+  margin: 5rem auto 0 auto;
 }
 
 .order-builder,
@@ -231,7 +242,7 @@ nav {
 .cart-item {
   display: flex;
   justify-content: space-between;
-  background: white;
+  background: var(--white);
   padding: 1rem;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -248,7 +259,7 @@ nav {
   height: 30px;
   border: none;
   background: var(--light-blue);
-  color: white;
+  color: var(--white);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -259,7 +270,7 @@ nav {
 }
 
 /* ===============================
-   ORDER TABLE (THANK YOU)
+   THANK YOU TABLE
 ================================ */
 
 .order-table {
@@ -278,18 +289,14 @@ nav {
 
 .table-header {
   background: var(--light-blue);
-  color: white;
+  color: var(--white);
   font-weight: bold;
 }
 
-.table-row:nth-child(even) {
-  background: #f9f9f9;
-}
+.table-row:nth-child(even) { background: var(--gray-bg); }
 
 .table-header span,
-.table-row span {
-  text-align: center;
-}
+.table-row span { text-align: center; }
 
 .order-total {
   margin-top: 1rem;
@@ -316,29 +323,6 @@ nav {
 }
 
 /* ===============================
-   RESPONSIVE
-================================ */
-
-@media (min-width: 600px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 900px) {
-  .order-layout {
-    grid-template-columns: 2fr 1fr;
-  }
-}
-
-@media (min-width: 1024px) {
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-
-/* ===============================
    MODAL
 ================================ */
 
@@ -352,12 +336,10 @@ nav {
   z-index: 2000;
 }
 
-.modal.active {
-  display: flex;
-}
+.modal.active { display: flex; }
 
 .modal-content {
-  background: white;
+  background: var(--white);
   padding: 2rem;
   border-radius: 12px;
   width: 90%;
@@ -381,10 +363,7 @@ nav {
   to { opacity: 1; transform: scale(1); }
 }
 
-
-.toppings-section {
-  margin: 1rem 0;
-}
+.toppings-section { margin: 1rem 0; }
 
 .toppings-section label {
   display: block;
@@ -392,32 +371,19 @@ nav {
   cursor: pointer;
 }
 
-.home-grid {
-  display: grid;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1400px;
-  margin: auto;
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (min-width: 600px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 900px) {
-  .home-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  .order-layout { grid-template-columns: 2fr 1fr; }
+  .home-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
-.contact-card,
-.weather-card,
-.featured-card {
-  background: var(--gray-bg);
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 2px solid var(--light-blue);
-}
-
-.featured-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  margin-bottom: 1rem;
+@media (min-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
 }
