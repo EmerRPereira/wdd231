@@ -21,7 +21,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--white);
-  color: var(--pink);
+  color: #333; /* texto padrão escuro */
   margin: 0;
   line-height: 1.6;
   display: flex;
