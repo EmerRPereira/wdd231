@@ -197,6 +197,8 @@ nav { justify-self: end; }
   border: 2px solid var(--light-blue);
 }
 
+.contact-card iframe {width: 400px;}
+
 .card {
   background: var(--white);
   text-align: center;
