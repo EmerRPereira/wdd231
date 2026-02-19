@@ -2,29 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DachsIce | Artisanal Ice Cream in Curitiba</title>
-<meta name="description" content="DachsIce offers handcrafted artisanal ice cream in Curitiba. View flavors, check the weather, and order online.">
-<meta name="author" content="Emerson Ronald Pereira">
+  <title>DachsIce | Artisanal Ice Cream in Curitiba</title>
+  <meta name="description" content="DachsIce offers handcrafted artisanal ice cream in Curitiba. View flavors, check the weather, and order online.">
+  <meta name="author" content="Emerson Ronald Pereira">
 
-<meta property="og:title" content="DachsIce Artisanal Ice Cream">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://emerrpereira.github.io/wdd231/finalproject/images/hero-home.webp">
-<meta property="og:url" content="https://emerrpereira.github.io/wdd231/finalproject/index.html">
-<meta property="og:description" content="Handcrafted artisanal ice cream in Curitiba. Order online at DachsIce.">
+  <meta property="og:title" content="DachsIce Artisanal Ice Cream">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://emerrpereira.github.io/wdd231/finalproject/images/hero-home.webp">
+  <meta property="og:url" content="https://emerrpereira.github.io/wdd231/finalproject/index.html">
+  <meta property="og:description" content="Handcrafted artisanal ice cream in Curitiba. Order online at DachsIce.">
 
 
-<link rel="icon" href="images/dachsice.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/dachsice.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles/base.css">
-<link rel="stylesheet" href="styles/small.css">
-<link rel="stylesheet" href="styles/large.css" media="(min-width: 768px)">
-<script type="module" src="scripts/main.js"></script>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/large.css" media="(min-width: 768px)">
+  <script type="module" src="scripts/main.js"></script>
 </head>
 
 <body>
@@ -37,7 +37,14 @@
       <span class="site-name">Sorveteria DachsIce</span>
     </div>
 
-    <button id="menu-button" aria-label="Open Menu">&#9776;</button>
+    <button 
+      id="menu-button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navigation">
+      &#9776;
+    </button>
+
 
     <nav>
       <ul id="navigation">
@@ -52,57 +59,55 @@
 
 <main>
   <h1 class="visually-hidden">DachsIce Artisanal Ice Cream in Curitiba</h1>
-<section class="hero">
-  <h2>Happiness in Every Scoop</h2>
-  <a href="order.html" class="cta-button">Order Now</a>
-</section>
+  <section class="hero">
+    <h2>Happiness in Every Scoop</h2>
+    <a href="order.html" class="cta-button">Order Now</a>
+  </section>
 
-<section class="home-grid">
+  <section class="home-grid">
 
-  <!-- CONTATO -->
-  <div class="contact-card">
-    <h3>Contato & Local</h3>
-    <p>Endereço: Rua Dep. Waldemiro Pedroso, 1668 — Novo Mundo — Curitiba, PR</p>
-    <p>Horário: Monday–Saturday • 12:00–20:00</p>
-    <p>Contato: (41) 98468-1313</p>
-    <p>Instagram:
-      <a href="https://www.instagram.com/dachsicesorveteria/" target="_blank">
-        @dachsice
-      </a>
-    </p>
+    <!-- CONTATO -->
+    <div class="contact-card">
+      <h3>Contato & Local</h3>
+      <p>Endereço: Rua Dep. Waldemiro Pedroso, 1668 — Novo Mundo — Curitiba, PR</p>
+      <p>Horário: Monday–Saturday • 12:00–20:00</p>
+      <p>Contato: (41) 98468-1313</p>
+      <p>Instagram:
+        <a href="https://www.instagram.com/dachsicesorveteria/" target="_blank">
+          @dachsice
+        </a>
+      </p>
 
       <iframe
         src="https://www.google.com/maps/embed?pb=!4v1764713496122!6m8!1m7!1sSJFcoqyTMjP_MmGuQUfFww!2m2!1d-25.49262498968033!2d-49.3095425297298!3f355.81!4f0!5f0.7820865974627469"
         height="250"
         loading="lazy"
-        allowfullscreen>
+        allowfullscreen
+        title="Google Maps location of DachsIce">
       </iframe>
-  </div>
-
-  <!-- WEATHER -->
-  <div id="weather-card" class="weather-card">
-    <h3>Weather</h3>
-
-    <div class="current-weather">
-      <h4>Current</h4>
-      <div class="weather-data"></div>
     </div>
 
-    <div class="forecast-weather">
-      <h4>Forecast</h4>
-      <div class="forecast-data"></div>
+    <!-- WEATHER -->
+    <div id="weather-card" class="weather-card">
+      <h3>Weather</h3>
+
+      <div class="current-weather">
+        <h4>Current</h4>
+        <div class="weather-data"></div>
+      </div>
+
+      <div class="forecast-weather">
+        <h4>Forecast</h4>
+        <div class="forecast-data"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- MASTER LOGO / PRODUTO ALEATÓRIO -->
-  <div id="master-logo" class="featured-card">
-    <img src="images/dachsice-ctba.jpg" alt="Sorveteria DachsIce" width="80" height="80">
-    <div id="featured-product"></div>
-  </div>
-
-</section>
-
-
+    <!-- MASTER LOGO / PRODUTO ALEATÓRIO -->
+    <div id="master-logo" class="featured-card">
+      <img src="images/dachsice-ctba.webp" alt="Sorveteria DachsIce" width="80" height="80">
+      <div id="featured-product"></div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -136,7 +141,7 @@
       <a href="https://github.com/emerrpereira" 
         target="_blank" 
         aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" 
+        <svg xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24" 
             width="28" 
             height="28" 
@@ -146,10 +151,10 @@
       </a>
 
       <!-- Project Video -->
-      <a href="https://youtu.be/oO4lrDkoquY?si=COUmkZzsNKaxuLwQ" 
+      <a href="https://youtu.be/oO4lrDkoquY" 
         target="_blank" 
         aria-label="Project Video">
-        <svg xmlns="https://youtu.be/oO4lrDkoquY" 
+        <svg xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24" 
             width="28" 
             height="28" 
