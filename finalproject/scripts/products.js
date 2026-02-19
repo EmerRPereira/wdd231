@@ -9,10 +9,29 @@
 import { saveToStorage } from "./storage.js";
 
 const grid = document.querySelector("#product-grid");
+const modal = document.getElementById("product-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const closeModal = document.querySelector(".close-modal");
 
+/* Product Extra Details */
+const productDetails = {
+  "Classic Cone": "Available flavors: Vanilla, Chocolate, Mixed. Cone or cup option. Add toppings for +R$2.",
+  "300ml Top Sundae (2 flavors)": "Choose 2 flavors. Includes syrup topping. Optional whipped cream.",
+  "Chocolate Milkshake": "Creamy chocolate milkshake. Sizes: 300ml or 500ml. Optional extra chocolate drizzle."
+};
+
+/* Load Products from JSON */
 async function loadProducts() {
+  if (!grid) return;
+
   try {
     const response = await fetch("data/products.json");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch products.json");
+    }
+
     const products = await response.json();
 
     grid.innerHTML = "";
@@ -20,7 +39,9 @@ async function loadProducts() {
     products.forEach(product => {
       grid.innerHTML += `
         <div class="card">
-          <img src="${product.image}" alt="${product.name.en}" loading="lazy">
+          <img src="${product.image}" 
+               alt="${product.name.en}" 
+               loading="lazy">
           <h3>${product.name.en}</h3>
           <p>${product.category}</p>
           <p>${product.desc.en}</p>
@@ -35,35 +56,29 @@ async function loadProducts() {
   }
 }
 
-const modal = document.getElementById("product-modal");
-const modalTitle = document.getElementById("modal-title");
-const modalDescription = document.getElementById("modal-description");
-const closeModal = document.querySelector(".close-modal");
+/* Event Delegation for Modal */
+if (grid) {
+  grid.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
 
-const productDetails = {
-  "Classic Cone": "Available flavors: Vanilla, Chocolate, Mixed. Cone or cup option. Add toppings for +R$2.",
-  "300ml Top Sundae (2 flavors)": "Choose 2 flavors. Includes syrup topping. Optional whipped cream.",
-  "Chocolate Milkshake": "Creamy chocolate milkshake. Sizes: 300ml or 500ml. Optional extra chocolate drizzle."
-};
+      const card = e.target.closest(".card");
+      const productName = card.querySelector("h3").textContent;
 
-/* EVENT DELEGATION */
-grid.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") {
+      modalTitle.textContent = productName;
+      modalDescription.textContent =
+        productDetails[productName] || "More details coming soon!";
 
-    const card = e.target.closest(".card");
-    const productName = card.querySelector("h3").textContent;
+      modal.classList.add("active");
+    }
+  });
+}
 
-    modalTitle.textContent = productName;
-    modalDescription.textContent =
-      productDetails[productName] || "More details coming soon!";
-
-    modal.classList.add("active");
-  }
-});
-
-closeModal.addEventListener("click", () => {
-  modal.classList.remove("active");
-});
+/* Close Modal */
+if (closeModal) {
+  closeModal.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+}
 
 window.addEventListener("click", (e) => {
   if (e.target === modal) {
@@ -71,4 +86,5 @@ window.addEventListener("click", (e) => {
   }
 });
 
+/* Initialize */
 loadProducts();
