@@ -9,8 +9,12 @@
 import { initWeather } from "./weather.js";
 import "./navigation.js";
 
-initWeather();
+/* Initialize Weather only if container exists */
+if (document.querySelector("#weather-card")) {
+  initWeather();
+}
 
+/* Footer Dynamic Year */
 const year = document.querySelector("#currentyear");
 const lastModified = document.querySelector("#lastModified");
 
@@ -19,29 +23,47 @@ if (year) {
 }
 
 if (lastModified) {
-  lastModified.textContent = "Last Modified: " + document.lastModified;
+  lastModified.textContent = `Last Modified: ${document.lastModified}`;
 }
 
+/* Load Featured Product */
 async function loadFeaturedProduct() {
+  const container = document.querySelector("#featured-product");
+  if (!container) return;
+
   try {
     const response = await fetch("data/products.json");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch products.json");
+    }
+
     const products = await response.json();
 
-    const randomIndex = Math.floor(Math.random() * products.length);
-    const product = products[randomIndex];
+    if (!Array.isArray(products) || products.length === 0) {
+      container.innerHTML = "<p>No featured product available.</p>";
+      return;
+    }
 
-    const container = document.querySelector("#featured-product");
+    /* Modern Array Method */
+    const randomIndex = Math.floor(Math.random() * products.length);
+    const product = products.at(randomIndex);
 
     container.innerHTML = `
       <h3>Featured Product</h3>
-      <img src="${product.image}" alt="${product.name.en}">
+      <img src="${product.image}" 
+           alt="${product.name.en}" 
+           loading="lazy">
       <h4>${product.name.en}</h4>
       <p>${product.desc.en}</p>
       <p><strong>R$ ${product.price.toFixed(2)}</strong></p>
     `;
+
   } catch (error) {
     console.error("Error loading featured product:", error);
+    container.innerHTML = "<p>Unable to load featured product.</p>";
   }
 }
 
+/* Initialize */
 loadFeaturedProduct();
