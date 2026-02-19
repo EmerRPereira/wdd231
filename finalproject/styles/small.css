@@ -343,7 +343,7 @@ nav { justify-self: end; }
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.25);
   justify-content: center;
   align-items: center;
   z-index: 2000;
