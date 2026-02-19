@@ -344,6 +344,7 @@ nav { justify-self: end; }
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.25);
+   color: black;
   justify-content: center;
   align-items: center;
   z-index: 2000;
