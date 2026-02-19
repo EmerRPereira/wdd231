@@ -353,7 +353,7 @@ nav { justify-self: end; }
 
 .modal-content {
   background: var(--white);
-   color: #000;
+   color: var(--white);
   padding: 2rem;
   border-radius: 12px;
   width: 90%;
