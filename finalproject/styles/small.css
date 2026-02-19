@@ -75,6 +75,11 @@ nav { justify-self: end; }
   cursor: pointer;
 }
 
+#menu-button:focus {
+  outline: 3px solid var(--pink);
+  outline-offset: 4px;
+}
+
 #navigation { display: none; }
 
 #navigation.open {
@@ -197,8 +202,10 @@ nav { justify-self: end; }
   border: 2px solid var(--light-blue);
 }
 
-.contact-card iframe {width: 400px;}
-
+.contact-card iframe {
+  width: 100%;
+  height: 250px;
+}
 .card {
   background: var(--white);
   text-align: center;
