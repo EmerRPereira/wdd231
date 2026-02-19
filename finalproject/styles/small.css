@@ -3,8 +3,8 @@
 ================================ */
 
 :root {
-  --pink: #b0004f;
-  --light-blue: #0077b6;
+  --pink: #9b003f; /* levemente mais escuro */
+  --light-blue: #005f8a; /* levemente mais escuro */
   --white: #FFFFFF;
   --gray-light: #f3f3f3;
   --gray-bg: #f9f9f9;
@@ -353,6 +353,7 @@ nav { justify-self: end; }
 
 .modal-content {
   background: var(--white);
+   color: #000;
   padding: 2rem;
   border-radius: 12px;
   width: 90%;
