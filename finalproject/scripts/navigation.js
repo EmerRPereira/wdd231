@@ -9,11 +9,13 @@
 const button = document.querySelector("#menu-button");
 const nav = document.querySelector("#navigation");
 
-if (button && nav) {
-  button.addEventListener("click", () => {
-    nav.classList.toggle("open");
+button.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  button.setAttribute("aria-expanded", isOpen);
+});
 
-    const isOpen = nav.classList.contains("open");
-    button.setAttribute("aria-expanded", isOpen);
-  });
-}
+// Fecha ao clicar em link
+nav.addEventListener("click", () => {
+  nav.classList.remove("open");
+  button.setAttribute("aria-expanded", false);
+});
