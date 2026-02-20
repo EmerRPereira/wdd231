@@ -23,38 +23,34 @@ const productDetails = {
 
 /* Load Products from JSON */
 async function loadProducts() {
-  if (!grid) return;
-
   try {
-    const response = await fetch("data/products.json");
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch products.json");
-    }
-
+    const response = await fetch("./data/products.json");
     const products = await response.json();
 
-    grid.innerHTML = "";
+    const container = document.querySelector("#product-grid");
 
     products.forEach(product => {
-      grid.innerHTML += `
-        <div class="card">
-          <img src="${product.image}" 
-               alt="${product.name.en}" 
-               loading="lazy">
-          <h3>${product.name.en}</h3>
-          <p>${product.category}</p>
-          <p>${product.desc.en}</p>
-          <p class="price">R$ ${product.price.toFixed(2)}</p>
-          <button data-id="${product.id}">Details</button>
-        </div>
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name.en}">
+        <h3>${product.name.en}</h3>
+        <p>${product.desc.en}</p>
+        <p class="price">R$ ${product.price.toFixed(2)}</p>
+        <button>Details</button>
       `;
+
+      container.appendChild(card);
     });
 
   } catch (error) {
     console.error("Error loading products:", error);
   }
 }
+
+loadProducts();
+
 
 /* Event Delegation for Modal */
 if (grid) {
