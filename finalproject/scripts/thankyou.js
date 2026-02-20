@@ -20,6 +20,8 @@ const name = params.get("name");
 const email = params.get("email");
 const total = params.get("total");
 
+const params = new URLSearchParams(window.location.search);
+
 document.querySelector("#order-summary").innerHTML = `
   <p><strong>Name:</strong> ${name}</p>
   <p><strong>Email:</strong> ${email}</p>
