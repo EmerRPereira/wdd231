@@ -6,6 +6,7 @@
  * Location: Curitiba, Brazil
  *****************************************************/
 
+/* NOTE: API key exposed for academic project purposes only */
 const weatherData = document.querySelector(".weather-data");
 const forecastDataSection = document.querySelector(".forecast-data");
 
@@ -44,6 +45,9 @@ export async function initWeather() {
 
   } catch (error) {
     console.error("Weather error:", error);
+
+    weatherData.innerHTML = "<p>Unable to load weather data.</p>";
+    forecastDataSection.innerHTML = "";
   }
 }
 
@@ -55,6 +59,10 @@ function getTodayMinMax(forecastData) {
   const temps = forecastData.list
     .filter(item => item.dt_txt.startsWith(today))
     .map(item => item.main.temp);
+
+  if (!temps.length) {
+    return { max: "-", min: "-" };
+  }
 
   return {
     max: Math.round(Math.max(...temps)),
@@ -94,7 +102,7 @@ function displayCurrentWeather(data, todayMinMax) {
 
   weatherData.innerHTML = `
     <div class="weather-content">
-      <img src="${iconURL}" alt="${description}">
+      <img src="${iconURL}" alt="${description}" loading="lazy">
       <div class="weather-info">
         <p><strong>${temp}°C</strong></p>
         <p>${description}</p>
@@ -120,13 +128,18 @@ function displayForecast(data) {
     .filter(item => item.dt_txt.includes("12:00:00"))
     .slice(0,3);
 
+  const fragment = document.createDocumentFragment();
+
   days.forEach(day => {
 
     const date = new Date(day.dt_txt);
     const dayName = date.toLocaleDateString("en-US",{ weekday:"long" });
 
-    forecastDataSection.innerHTML += `
-      <p>${dayName}: <strong>${Math.round(day.main.temp)}°C</strong></p>
-    `;
+    const p = document.createElement("p");
+    p.innerHTML = `${dayName}: <strong>${Math.round(day.main.temp)}°C</strong>`;
+
+    fragment.appendChild(p);
   });
+
+  forecastDataSection.appendChild(fragment);
 }
