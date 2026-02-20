@@ -1,9 +1,7 @@
 /*****************************************************
  * scripts/main.js
  * WDD231 – Final Project
- * Main Application Entry Point
- * Author: Emerson Ronald Pereira
- * Location: Curitiba, Brazil
+ * Main Application Entry Point (FINAL VERSION)
  *****************************************************/
 
 import { initWeather } from "./weather.js";
@@ -32,7 +30,7 @@ async function loadFeaturedProduct() {
   if (!container) return;
 
   try {
-    const response = await fetch("data/products.json");
+    const response = await fetch("./data/products.json");
 
     if (!response.ok) {
       throw new Error("Failed to fetch products.json");
@@ -41,7 +39,7 @@ async function loadFeaturedProduct() {
     const products = await response.json();
 
     if (!Array.isArray(products) || products.length === 0) {
-      container.innerHTML = "<p>No featured product available.</p>";
+      container.textContent = "No featured product available.";
       return;
     }
 
@@ -49,11 +47,16 @@ async function loadFeaturedProduct() {
     const randomIndex = Math.floor(Math.random() * products.length);
     const product = products.at(randomIndex);
 
+    /* Accessibility */
+    container.setAttribute("aria-label", "Featured product");
+
+    /* Safe rendering */
     container.innerHTML = `
       <h3>Featured Product</h3>
       <img src="${product.image}" 
            alt="${product.name.en}" 
-           loading="lazy">
+           loading="lazy"
+           onerror="this.src='images/placeholder.webp'">
       <h4>${product.name.en}</h4>
       <p>${product.desc.en}</p>
       <p><strong>R$ ${product.price.toFixed(2)}</strong></p>
@@ -61,9 +64,10 @@ async function loadFeaturedProduct() {
 
   } catch (error) {
     console.error("Error loading featured product:", error);
-    container.innerHTML = "<p>Unable to load featured product.</p>";
+    container.textContent = "Unable to load featured product.";
   }
 }
 
 /* Initialize */
 loadFeaturedProduct();
+
