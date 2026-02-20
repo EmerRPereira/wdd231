@@ -27,6 +27,15 @@ const toppings = [
   { id: "morango", name: "Morangos", price: 4 }
 ];
 
+const params = new URLSearchParams({
+  name: customerName,
+  email: customerEmail,
+  total: total.toFixed(2)
+});
+
+window.location.href = `thankyou.html?${params.toString()}`;
+
+
 /* RENDER TOPPINGS CHECKBOXES */
 function renderToppings() {
   toppings.forEach(topping => {
