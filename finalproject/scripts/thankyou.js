@@ -14,6 +14,18 @@ const clearBtn = document.querySelector("#clear-orders");
 
 const orders = getFromStorage("dachsice_orders") || [];
 
+const params = new URLSearchParams(window.location.search);
+
+const name = params.get("name");
+const email = params.get("email");
+const total = params.get("total");
+
+document.querySelector("#order-summary").innerHTML = `
+  <p><strong>Name:</strong> ${name}</p>
+  <p><strong>Email:</strong> ${email}</p>
+  <p><strong>Total:</strong> R$ ${total}</p>
+`;
+
 /* ===== LAST ORDER ===== */
 function displayLastOrder() {
   if (!orders.length) {
