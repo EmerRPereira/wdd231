@@ -23,41 +23,55 @@ const productDetails = {
 
 /* Load Products from JSON */
 async function loadProducts() {
+  if (!grid) return;
+
   try {
     const response = await fetch("./data/products.json");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch products.json");
+    }
+
     const products = await response.json();
 
-    const container = document.querySelector("#product-grid");
+    grid.innerHTML = "";
 
     products.forEach(product => {
       const card = document.createElement("div");
       card.classList.add("card");
 
       card.innerHTML = `
-        <img src="${product.image}" alt="${product.name.en}">
+        <img src="${product.image}" 
+             alt="${product.name.en}" 
+             loading="lazy"
+             onerror="this.src='images/placeholder.webp'">
         <h3>${product.name.en}</h3>
         <p>${product.desc.en}</p>
         <p class="price">R$ ${product.price.toFixed(2)}</p>
-        <button>Details</button>
+        <button aria-label="View details of ${product.name.en}">
+          Details
+        </button>
       `;
 
-      container.appendChild(card);
+      grid.appendChild(card);
     });
 
   } catch (error) {
     console.error("Error loading products:", error);
+    if (grid) {
+      grid.textContent = "Unable to load products.";
+    }
   }
 }
 
-loadProducts();
-
-
 /* Event Delegation for Modal */
-if (grid) {
+if (grid && modal) {
   grid.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") {
 
       const card = e.target.closest(".card");
+      if (!card) return;
+
       const productName = card.querySelector("h3").textContent;
 
       modalTitle.textContent = productName;
@@ -70,14 +84,14 @@ if (grid) {
 }
 
 /* Close Modal */
-if (closeModal) {
+if (closeModal && modal) {
   closeModal.addEventListener("click", () => {
     modal.classList.remove("active");
   });
 }
 
 window.addEventListener("click", (e) => {
-  if (e.target === modal) {
+  if (modal && e.target === modal) {
     modal.classList.remove("active");
   }
 });
