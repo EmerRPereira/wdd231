@@ -1,6 +1,6 @@
 <!-- products.html - Emerson Ronald Pereira - Projeto Final WDD231 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,6 @@
     <meta property="og:url" content="https://emerrpereira.github.io/wdd231/finalproject/products.html">
     <meta property="og:description" content="Explore handcrafted ice cream flavors at DachsIce in Curitiba. Fresh, creamy, and made with love. Order your favorite today.">
 
-
     <link rel="icon" href="images/dachsice.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +23,7 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/large.css" media="(min-width: 768px)">
+    
     <script type="module" src="scripts/main.js"></script>
     <script type="module" src="scripts/products.js"></script>
   </head>
@@ -38,7 +38,13 @@
       <span class="site-name">Sorveteria DachsIce</span>
     </div>
 
-    <button id="menu-button" aria-label="Open Menu">&#9776;</button>
+    <button 
+      id="menu-button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="navigation">
+      &#9776;
+    </button>
 
     <nav>
       <ul id="navigation">
@@ -51,12 +57,13 @@
   </div>
 </header>
 
-
 <main>
   <h1 class="visually-hidden">DachsIce Ice Cream Products</h1>
   
-  <h2>Our Flavors</h2>
-  <section id="product-grid" class="products-grid"></section>
+  <section>
+    <h2>Our Flavors</h2>
+    <section id="product-grid" class="products-grid"></section>
+  </section>
 
 </main>
 
@@ -77,6 +84,7 @@
       <!-- Instagram -->
       <a href="https://www.instagram.com/dachsicesorveteria/" 
         target="_blank" 
+        rel="noopener noreferrer"
         aria-label="Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24" 
@@ -87,10 +95,10 @@
         </svg>
       </a>
 
-
       <!-- GitHub -->
       <a href="https://github.com/emerrpereira" 
         target="_blank" 
+        rel="noopener noreferrer"
         aria-label="GitHub">
         <svg xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24" 
@@ -102,8 +110,9 @@
       </a>
       
       <!-- Project Video -->
-      <a href="https://youtube.com/seulink" 
+      <a href="https://youtu.be/oO4lrDkoquY" 
         target="_blank" 
+        rel="noopener noreferrer"
         aria-label="Project Video">
         <svg xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24" 
