@@ -1,13 +1,11 @@
 /*****************************************************
  * scripts/order.js
  * WDD231 – Final Project
- * Order Page Logic
+ * Order Page Logic (FINAL VERSION - FIXED)
  *****************************************************/
 
-import { saveToStorage, getFromStorage } from "./storage.js";
-
-const name = document.querySelector("#customer-name").value;
-const email = document.querySelector("#customer-email").value;
+const nameInput = document.querySelector("#customer-name");
+const emailInput = document.querySelector("#customer-email");
 const select = document.querySelector("#product-select");
 const quantityInput = document.querySelector("#quantity");
 const addBtn = document.querySelector("#add-to-cart");
@@ -18,55 +16,55 @@ const toppingsContainer = document.querySelector("#toppings-container");
 const clearBtn = document.querySelector("#clear-cart");
 
 let products = [];
-let cart = getFromStorage("dachsice_cart") || [];
 
-/* ===== COMPLEMENTOS ===== */
+/* ===== LOCAL STORAGE (REQUIRED FIX) ===== */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* ===== TOPPINGS ===== */
 const toppings = [
   { id: "granulado", name: "Granulado", price: 2 },
   { id: "calda", name: "Calda Chocolate", price: 3 },
   { id: "morango", name: "Morangos", price: 4 }
 ];
 
-const params = new URLSearchParams({
-  name: customerName,
-  email: customerEmail,
-  total: total.toFixed(2)
-});
-
-window.location.href = `thankyou.html?${params.toString()}`;
-
-
-/* RENDER TOPPINGS CHECKBOXES */
+/* ===== RENDER TOPPINGS ===== */
 function renderToppings() {
+  toppingsContainer.innerHTML = "";
   toppings.forEach(topping => {
     const label = document.createElement("label");
+
     label.innerHTML = `
       <input type="checkbox" value="${topping.id}" data-price="${topping.price}">
       ${topping.name} (+ R$ ${topping.price.toFixed(2)})
     `;
+
     toppingsContainer.appendChild(label);
   });
 }
 
 renderToppings();
 
-
-/* LOAD PRODUCTS */
+/* ===== LOAD PRODUCTS ===== */
 async function loadProducts() {
-  const response = await fetch("data/products.json");
-  products = await response.json();
+  try {
+    const response = await fetch("data/products.json");
+    products = await response.json();
 
-  products.forEach(product => {
-    const option = document.createElement("option");
-    option.value = product.id;
-    option.textContent = `${product.name.en} — R$ ${product.price.toFixed(2)}`;
-    select.appendChild(option);
-  });
+    products.forEach(product => {
+      const option = document.createElement("option");
+      option.value = product.id;
+      option.textContent = `${product.name.en} — R$ ${product.price.toFixed(2)}`;
+      select.appendChild(option);
+    });
+
+  } catch (error) {
+    console.error("Error loading products:", error);
+  }
 }
 
 loadProducts();
 
-/* RENDER CART */
+/* ===== RENDER CART ===== */
 function renderCart() {
   cartContainer.innerHTML = "";
   let total = 0;
@@ -74,41 +72,46 @@ function renderCart() {
   cart.forEach((item, index) => {
     total += item.total;
 
-    cartContainer.innerHTML += `
-      <div class="cart-item">
-        <div>
-          <strong>${item.name}</strong>
-          <p>${item.toppings.join(", ") || "No toppings"}</p>
-          <div class="qty-controls">
-            <button data-index="${index}" class="minus">-</button>
-            <span>${item.quantity}</span>
-            <button data-index="${index}" class="plus">+</button>
-          </div>
-        </div>
-        <div>
-          R$ ${item.total.toFixed(2)}
-          <button data-index="${index}" class="remove-btn">🗑</button>
+    const div = document.createElement("div");
+    div.classList.add("cart-item");
+
+    div.innerHTML = `
+      <div>
+        <strong>${item.name}</strong>
+        <p>${item.toppings.join(", ") || "No toppings"}</p>
+        <div class="qty-controls">
+          <button data-index="${index}" class="minus">-</button>
+          <span>${item.quantity}</span>
+          <button data-index="${index}" class="plus">+</button>
         </div>
       </div>
+      <div>
+        R$ ${item.total.toFixed(2)}
+        <button data-index="${index}" class="remove-btn">🗑</button>
+      </div>
     `;
+
+    cartContainer.appendChild(div);
   });
 
   totalEl.textContent = total.toFixed(2);
-  saveToStorage("dachsice_cart", cart);
+
+  /* SAVE CART (REQUIRED) */
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 renderCart();
 
-/* ADD TO CART */
+/* ===== ADD TO CART ===== */
 addBtn.addEventListener("click", () => {
-  const productId = select.value;
+  const productId = Number(select.value);
   const qty = Number(quantityInput.value);
 
   if (!productId || qty < 1) return;
 
   const product = products.find(p => p.id === productId);
+  if (!product) return;
 
-  // pegar apenas os toppings selecionados
   const checked = toppingsContainer.querySelectorAll("input:checked");
 
   let selectedToppings = [];
@@ -116,8 +119,10 @@ addBtn.addEventListener("click", () => {
 
   checked.forEach(input => {
     const topping = toppings.find(t => t.id === input.value);
-    selectedToppings.push(topping.name);
-    toppingPrice += topping.price;
+    if (topping) {
+      selectedToppings.push(topping.name);
+      toppingPrice += topping.price;
+    }
   });
 
   const unitPrice = product.price + toppingPrice;
@@ -133,39 +138,41 @@ addBtn.addEventListener("click", () => {
 
   renderCart();
 
-  // limpar seleções
-  checked.forEach(input => input.checked = false);
+  checked.forEach(input => (input.checked = false));
 });
 
-
-/* CART CONTROLS */
+/* ===== CART CONTROLS ===== */
 cartContainer.addEventListener("click", (e) => {
-  const index = e.target.dataset.index;
+  const index = Number(e.target.dataset.index);
+  if (isNaN(index)) return;
+
   if (e.target.classList.contains("plus")) {
     cart[index].quantity++;
-    cart[index].total = cart[index].unitPrice * cart[index].quantity;
   }
 
   if (e.target.classList.contains("minus") && cart[index].quantity > 1) {
     cart[index].quantity--;
+  }
+
+  if (e.target.classList.contains("remove-btn")) {
+    cart.splice(index, 1);
+  }
+
+  if (cart[index]) {
     cart[index].total = cart[index].unitPrice * cart[index].quantity;
   }
 
-    if (e.target.classList.contains("remove-btn")) {
-      cart.splice(index, 1);
-    }
   renderCart();
 });
 
-/* CLEAR */
+/* ===== CLEAR CART ===== */
 clearBtn.addEventListener("click", () => {
   cart = [];
   renderCart();
 });
 
-/* CHECKOUT */
+/* ===== CHECKOUT ===== */
 checkoutBtn.addEventListener("click", () => {
-
   const name = nameInput.value.trim();
   const email = emailInput.value.trim();
 
@@ -180,26 +187,34 @@ checkoutBtn.addEventListener("click", () => {
   }
 
   if (!cart.length) {
-    alert("Cart empty!");
+    alert("Cart is empty!");
     return;
   }
 
-  const order = {
+  const total = cart.reduce((sum, item) => sum + item.total, 0);
+
+  const newOrder = {
     id: "ord_" + Date.now(),
-    customer: {
-      name,
-      email
-    },
+    customer: { name, email },
     items: cart,
-    total: cart.reduce((sum, item) => sum + item.total, 0),
+    total: total,
     date: new Date().toISOString()
   };
 
-  const orders = getFromStorage("dachsice_orders") || [];
-  orders.push(order);
+  /* SAVE ORDER HISTORY (REQUIRED) */
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push(newOrder);
+  localStorage.setItem("orders", JSON.stringify(orders));
 
-  saveToStorage("dachsice_orders", orders);
-  saveToStorage("dachsice_cart", []);
+  /* CLEAR CART */
+  localStorage.setItem("cart", JSON.stringify([]));
 
-  window.location.href = `thankyou.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&total=${total}`;
+  /* REDIRECT WITH URL PARAMS (REQUIRED) */
+  const params = new URLSearchParams({
+    name: name,
+    email: email,
+    total: total.toFixed(2)
+  });
+
+  window.location.href = `thankyou.html?${params.toString()}`;
 });
