@@ -6,21 +6,46 @@
  * Location: Curitiba, Brazil
  *****************************************************/
 
-const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-cart = savedCart;
+/*****************************************************
+ * scripts/storage.js
+ * WDD231 – Final Project
+ * Local Storage Management (FINAL VERSION)
+ *****************************************************/
 
-localStorage.setItem("cart", JSON.stringify(cart));
-
-export function saveToStorage(key,value){
-localStorage.setItem(key,JSON.stringify(value));
+/* Save data to localStorage */
+export function saveToStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    console.error("Error saving to localStorage:", error);
+  }
 }
 
-export function getFromStorage(key){
-return JSON.parse(localStorage.getItem(key));
+/* Get data from localStorage */
+export function getFromStorage(key) {
+  try {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+  } catch (error) {
+    console.error("Error reading from localStorage:", error);
+    return null;
+  }
 }
 
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
+/* Remove item */
+export function removeFromStorage(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch (error) {
+    console.error("Error removing from localStorage:", error);
+  }
+}
 
-orders.push(newOrder);
-
-localStorage.setItem("orders", JSON.stringify(orders));
+/* Clear all storage */
+export function clearStorage() {
+  try {
+    localStorage.clear();
+  } catch (error) {
+    console.error("Error clearing localStorage:", error);
+  }
+}
