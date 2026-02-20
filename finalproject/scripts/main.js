@@ -1,6 +1,7 @@
 /*****************************************************
  * scripts/main.js
  * WDD231 – Final Project
+ * Author: Emerson Ronald Pereira
  * Main Application Entry Point (FINAL VERSION)
  *****************************************************/
 
