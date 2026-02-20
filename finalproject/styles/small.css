@@ -29,7 +29,12 @@ body {
 
 main {
   flex: 1;
-  padding-top: 110px;
+  padding-top: 90px; /* reduzir */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 /* ===============================
@@ -185,7 +190,7 @@ nav { justify-self: end; }
 }
 
 .home-grid {
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 /* ===============================
