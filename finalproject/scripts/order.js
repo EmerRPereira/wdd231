@@ -2,6 +2,7 @@
  * scripts/order.js
  * WDD231 – Final Project
  * Order Page Logic (FINAL VERSION - FIXED)
+ * Author: Emerson Ronald Pereira
  *****************************************************/
 
 const nameInput = document.querySelector("#customer-name");
