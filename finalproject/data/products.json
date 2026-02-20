@@ -1,6 +1,6 @@
 [
   {
-    "id": "p1",
+    "id": 1,
     "name": { "pt": "Casquinha Tradicional", "en": "Classic Cone" },
     "price": 5.00,
     "image": "images/casquinha.webp",
@@ -8,7 +8,7 @@
     "category": "Ice Cream"
   },
   {
-    "id": "p2",
+    "id": 2,
     "name": { "pt": "Top Sundae 300ml (2 sabores)", "en": "300ml Top Sundae (2 flavors)" },
     "price": 10.00,
     "image": "images/topsundae-beaglemor.svg",
@@ -16,7 +16,7 @@
     "category": "Sundae"
   },
   {
-    "id": "p3",
+    "id": 3,
     "name": { "pt": "Milkshake Chocolate", "en": "Chocolate Milkshake" },
     "price": 15.00,
     "image": "images/yorkshake-choc.svg",
@@ -24,7 +24,7 @@
     "category": "Milkshake"
   },
   {
-    "id": "p4",
+    "id": 4,
     "name": { "pt": "Açaí 300ml", "en": "Açaí Bowl 300ml" },
     "price": 18.00,
     "image": "images/showshow-acai.webp",
@@ -32,7 +32,7 @@
     "category": "Açaí"
   },
   {
-    "id": "p5",
+    "id": 5,
     "name": { "pt": "Milkshake Morango", "en": "Strawberry Milkshake" },
     "price": 15.00,
     "image": "images/milkshake-mor.svg",
@@ -40,7 +40,7 @@
     "category": "Milkshake"
   },
   {
-    "id": "p6",
+    "id": 6,
     "name": { "pt": "Panetone Gelado", "en": "Iced Panettone" },
     "price": 6.50,
     "image": "images/panetone-gelado.svg",
@@ -48,7 +48,7 @@
     "category": "Special"
   },
   {
-    "id": "p7",
+    "id": 7,
     "name": { "pt": "Bubble Waffle", "en": "Bubble Waffle" },
     "price": 26.00,
     "image": "images/bubblecone.webp",
@@ -56,7 +56,7 @@
     "category": "Waffle"
   },
   {
-    "id": "p8",
+    "id": 8,
     "name": { "pt": "Crepe", "en": "Crepe" },
     "price": 6.00,
     "image": "images/crepe-1.svg",
@@ -64,7 +64,7 @@
     "category": "Crepe"
   },
   {
-    "id": "p9",
+    "id": 9,
     "name": { "pt": "Cascão", "en": "Cascão" },
     "price": 7.00,
     "image": "images/cascao.svg",
@@ -73,7 +73,7 @@
   }
   ,
 {
-  "id": "p10",
+  "id": 10,
   "name": { "pt": "Sundae Chocolate", "en": "Chocolate Sundae" },
   "price": 12.00,
   "image": "images/sundae-chocolate.webp",
@@ -81,7 +81,7 @@
   "category": "Sundae"
 },
 {
-  "id": "p11",
+  "id": 11,
   "name": { "pt": "Sundae Morango", "en": "Strawberry Sundae" },
   "price": 12.00,
   "image": "images/sundae-morango.webp",
@@ -89,7 +89,7 @@
   "category": "Sundae"
 },
 {
-  "id": "p12",
+  "id": 12,
   "name": { "pt": "Milkshake Baunilha", "en": "Vanilla Milkshake" },
   "price": 15.00,
   "image": "images/milkshake-baunilha.webp",
@@ -97,7 +97,7 @@
   "category": "Milkshake"
 },
 {
-  "id": "p13",
+  "id": 13,
   "name": { "pt": "Açaí 500ml", "en": "Açaí Bowl 500ml" },
   "price": 24.00,
   "image": "images/acai-500ml.webp",
@@ -105,7 +105,7 @@
   "category": "Açaí"
 },
 {
-  "id": "p14",
+  "id": 14,
   "name": { "pt": "Waffle Tradicional", "en": "Classic Waffle" },
   "price": 20.00,
   "image": "images/waffle-tradicional.webp",
@@ -113,7 +113,7 @@
   "category": "Waffle"
 },
 {
-  "id": "p15",
+  "id": 15,
   "name": { "pt": "Petit Gateau", "en": "Petit Gateau" },
   "price": 22.00,
   "image": "images/petit-gateau.webp",
