@@ -6,8 +6,8 @@
 
 import { saveToStorage, getFromStorage } from "./storage.js";
 
-const nameInput = document.querySelector("#customer-name");
-const emailInput = document.querySelector("#customer-email");
+const name = document.querySelector("#customer-name").value;
+const email = document.querySelector("#customer-email").value;
 const select = document.querySelector("#product-select");
 const quantityInput = document.querySelector("#quantity");
 const addBtn = document.querySelector("#add-to-cart");
@@ -192,5 +192,5 @@ checkoutBtn.addEventListener("click", () => {
   saveToStorage("dachsice_orders", orders);
   saveToStorage("dachsice_cart", []);
 
-  window.location.href = "thankyou.html";
+  window.location.href = `thankyou.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&total=${total}`;
 });
