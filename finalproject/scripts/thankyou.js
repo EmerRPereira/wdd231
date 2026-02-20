@@ -12,30 +12,29 @@ const historyContainer = document.querySelector("#history-list");
 const grandTotalEl = document.querySelector("#grand-total");
 const clearBtn = document.querySelector("#clear-orders");
 
+/* Get stored orders */
 const orders = getFromStorage("dachsice_orders") || [];
 
+/* Get URL parameters */
 const params = new URLSearchParams(window.location.search);
-
 const name = params.get("name");
 const email = params.get("email");
 const total = params.get("total");
 
-const params = new URLSearchParams(window.location.search);
-
-document.querySelector("#order-summary").innerHTML = `
-  <p><strong>Name:</strong> ${name}</p>
-  <p><strong>Email:</strong> ${email}</p>
-  <p><strong>Total:</strong> R$ ${total}</p>
-`;
-
 /* ===== LAST ORDER ===== */
 function displayLastOrder() {
+  if (!summaryContainer) return;
+
   if (!orders.length) {
-    summaryContainer.innerHTML = "<p>No recent orders.</p>";
+    summaryContainer.innerHTML = `
+      <p><strong>Name:</strong> ${name || "N/A"}</p>
+      <p><strong>Email:</strong> ${email || "N/A"}</p>
+      <p><strong>Total:</strong> R$ ${total || "0.00"}</p>
+    `;
     return;
   }
 
-  const last = orders[orders.length - 1];
+  const last = orders.at(-1);
 
   const customerName = last.customer?.name || "Not provided";
   const customerEmail = last.customer?.email || "Not provided";
@@ -57,7 +56,7 @@ function displayLastOrder() {
         <div class="table-row">
           <span>${item.name}</span>
           <span>${item.quantity}</span>
-          <span>${item.toppings.join(", ")}</span>
+          <span>${(item.toppings || []).join(", ") || "None"}</span>
           <span>R$ ${item.total.toFixed(2)}</span>
         </div>
       `).join("")}
@@ -69,8 +68,9 @@ function displayLastOrder() {
   `;
 }
 
-/* ===== ORDER HISTORY (TABLE FORMAT) ===== */
+/* ===== ORDER HISTORY ===== */
 function displayHistory() {
+  if (!historyContainer || !grandTotalEl) return;
 
   if (!orders.length) {
     historyContainer.innerHTML = "<p>No order history.</p>";
@@ -91,7 +91,6 @@ function displayHistory() {
       </div>
 
       ${orders.map(order => {
-
         totalRevenue += order.total;
 
         const formattedDate = new Date(order.date).toLocaleDateString("en-CA");
@@ -112,12 +111,13 @@ function displayHistory() {
   grandTotalEl.textContent = totalRevenue.toFixed(2);
 }
 
-
 /* ===== CLEAR HISTORY ===== */
-clearBtn.addEventListener("click", () => {
-  saveToStorage("dachsice_orders", []);
-  location.reload();
-});
+if (clearBtn) {
+  clearBtn.addEventListener("click", () => {
+    saveToStorage("dachsice_orders", []);
+    location.reload();
+  });
+}
 
 /* ===== INIT ===== */
 displayLastOrder();
