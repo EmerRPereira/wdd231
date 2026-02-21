@@ -228,6 +228,7 @@ nav { justify-self: end; }
   height: 200px;
   object-fit: cover;
   margin-bottom: 1rem;
+   align-items: center;
 }
 
 /* Logo menor e controlado */
