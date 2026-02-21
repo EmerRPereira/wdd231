@@ -45,7 +45,7 @@ function displayProducts(products) {
     card.innerHTML = `
       <img src="${product.image}" alt="${product.name.en}" loading="lazy">
       <h3>${product.name.en}</h3>
-      <p>${product.description.en}</p>
+      <p>${product.desc.en}</p>
       <p><strong>R$ ${product.price.toFixed(2)}</strong></p>
       <button class="details-btn">View Details</button>
     `;
