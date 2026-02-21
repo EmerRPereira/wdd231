@@ -7,119 +7,74 @@
 
 import { getFromStorage, saveToStorage } from "./storage.js";
 
-const summaryContainer = document.querySelector("#order-summary");
-const historyContainer = document.querySelector("#history-list");
-const grandTotalEl = document.querySelector("#grand-total");
-const clearBtn = document.querySelector("#clear-orders");
+document.addEventListener("DOMContentLoaded", () => {
 
-/* Get stored orders */
-const storedOrders = getFromStorage("dachsice_orders");
-const orders = Array.isArray(storedOrders) ? storedOrders : [];
+  const summaryContainer = document.querySelector("#order-summary");
+  const historyContainer = document.querySelector("#history-list");
+  const grandTotalEl = document.querySelector("#grand-total");
+  const clearBtn = document.querySelector("#clear-orders");
 
-/* Get URL parameters */
-const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
-const email = params.get("email");
-const total = params.get("total");
+  const orders = getFromStorage("dachsice_orders") || [];
 
-/* ===== LAST ORDER ===== */
-function displayLastOrder() {
-  if (!summaryContainer) return;
+  /* ===== LAST ORDER ===== */
+  function displayLastOrder() {
 
-  if (!orders.length) {
+    if (!summaryContainer) return;
+
+    if (!orders.length) {
+      summaryContainer.innerHTML = "<p>No recent order found.</p>";
+      return;
+    }
+
+    const last = orders.at(-1);
+
     summaryContainer.innerHTML = `
-      <p><strong>Name:</strong> ${name || "N/A"}</p>
-      <p><strong>Email:</strong> ${email || "N/A"}</p>
-      <p><strong>Total:</strong> R$ ${total || "0.00"}</p>
+      <p><strong>Order ID:</strong> ${last.id}</p>
+      <p><strong>Customer:</strong> ${last.customer.name}</p>
+      <p><strong>Email:</strong> ${last.customer.email}</p>
+      <p><strong>Total:</strong> R$ ${last.total.toFixed(2)}</p>
     `;
-    return;
   }
 
-  const last = orders.at(-1);
+  /* ===== HISTORY ===== */
+  function displayHistory() {
 
-  const customerName = last.customer?.name || "Not provided";
-  const customerEmail = last.customer?.email || "Not provided";
+    if (!historyContainer) return;
 
-  summaryContainer.innerHTML = `
-    <p><strong>Order ID:</strong> ${last.id}</p>
-    <p><strong>Customer:</strong> ${customerName}</p>
-    <p><strong>Email:</strong> ${customerEmail}</p>
+    if (!orders.length) {
+      historyContainer.innerHTML = "<p>No order history.</p>";
+      return;
+    }
 
-    <div class="order-table">
-      <div class="table-header">
-        <span>Product</span>
-        <span>Qty</span>
-        <span>Toppings</span>
-        <span>Total</span>
-      </div>
+    let totalRevenue = 0;
 
-      ${last.items.map(item => `
-        <div class="table-row">
-          <span>${item.name}</span>
-          <span>${item.quantity}</span>
-          <span>${(item.toppings || []).join(", ") || "None"}</span>
-          <span>R$ ${item.total.toFixed(2)}</span>
+    historyContainer.innerHTML = orders.map(order => {
+      totalRevenue += order.total;
+      return `
+        <div class="history-row">
+          <p><strong>ID:</strong> ${order.id}</p>
+          <p>${order.customer.name} — ${order.customer.email}</p>
+          <p>Date: ${new Date(order.date).toLocaleDateString()}</p>
+          <p>Total: R$ ${order.total.toFixed(2)}</p>
+          <hr>
         </div>
-      `).join("")}
-    </div>
+      `;
+    }).join("");
 
-    <h3 class="order-total">
-      Order Total: R$ ${last.total.toFixed(2)}
-    </h3>
-  `;
-}
-
-/* ===== ORDER HISTORY ===== */
-function displayHistory() {
-  if (!historyContainer || !grandTotalEl) return;
-
-  if (!orders.length) {
-    historyContainer.innerHTML = "<p>No order history.</p>";
-    grandTotalEl.textContent = "0.00";
-    return;
+    if (grandTotalEl) {
+      grandTotalEl.textContent = totalRevenue.toFixed(2);
+    }
   }
 
-  let totalRevenue = 0;
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      saveToStorage("dachsice_orders", []);
+      location.reload();
+    });
+  }
 
-  historyContainer.innerHTML = `
-    <div class="order-table">
-      <div class="table-header">
-        <span>Order ID</span>
-        <span>Customer</span>
-        <span>Email</span>
-        <span>Date</span>
-        <span>Total</span>
-      </div>
+  displayLastOrder();
+  displayHistory();
 
-      ${orders.map(order => {
-        totalRevenue += order.total;
+});
 
-        const formattedDate = new Date(order.date).toLocaleDateString("en-CA");
-
-        return `
-          <div class="table-row history-row">
-            <span>${order.id}</span>
-            <span>${order.customer?.name || "N/A"}</span>
-            <span>${order.customer?.email || "N/A"}</span>
-            <span>${formattedDate}</span>
-            <span>R$ ${order.total.toFixed(2)}</span>
-          </div>
-        `;
-      }).join("")}
-    </div>
-  `;
-
-  grandTotalEl.textContent = totalRevenue.toFixed(2);
-}
-
-/* ===== CLEAR HISTORY ===== */
-if (clearBtn) {
-  clearBtn.addEventListener("click", () => {
-    saveToStorage("dachsice_orders", []);
-    location.reload();
-  });
-}
-
-/* ===== INIT ===== */
-displayLastOrder();
-displayHistory();
