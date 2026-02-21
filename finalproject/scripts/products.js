@@ -21,7 +21,6 @@ async function loadProducts() {
     const data = await response.json();
     const products = data.products;
 
-
     if (!Array.isArray(products) || products.length === 0) {
       container.innerHTML = "<p>No products available.</p>";
       return;
@@ -77,6 +76,4 @@ function displayProducts(products) {
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", loadProducts);
-
