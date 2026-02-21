@@ -214,7 +214,7 @@ nav { justify-self: end; }
 .card {
   background: var(--white);
   text-align: center;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
