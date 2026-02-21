@@ -31,7 +31,11 @@ async function loadFeaturedProduct() {
   if (!container) return;
 
   try {
-    const response = await fetch("./data/products.json");
+    const basePath = window.location.hostname.includes("github.io")
+      ? "/wdd231/finalproject/"
+      : "";
+
+    const response = await fetch(`${basePath}data/products.json`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch products.json");
