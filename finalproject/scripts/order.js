@@ -136,19 +136,34 @@ clearBtn.addEventListener("click", () => {
 checkoutBtn.addEventListener("click", () => {
   if (!cart.length) return;
 
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+
+  if (!name || !email) {
+    alert("Please fill in name and email.");
+    return;
+  }
+
+  const total = cart.reduce((sum, item) => sum + item.total, 0);
+
   const order = {
-    customer: nameInput.value,
-    email: emailInput.value,
+    id: Date.now(),
+    customer: {
+      name,
+      email
+    },
     items: cart,
-    date: new Date().toLocaleString()
+    total,
+    date: new Date().toISOString()
   };
 
-  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  let orders = JSON.parse(localStorage.getItem("dachsice_orders")) || [];
   orders.push(order);
 
-  localStorage.setItem("orders", JSON.stringify(orders));
+  localStorage.setItem("dachsice_orders", JSON.stringify(orders));
   localStorage.removeItem("cart");
 
   window.location.href = "thankyou.html";
 });
+
 
