@@ -227,10 +227,13 @@ nav { justify-self: end; }
   width: 60%;
   height: 200px;
   object-fit: cover;
-  margin-bottom: 1rem;
-   display: block;
-   margin: 0 auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 10px;
+  background: #f8f8f8;
+  padding: 10px;
 }
+
 
 /* Logo menor e controlado */
 .featured-logo {
@@ -247,12 +250,6 @@ nav { justify-self: end; }
   object-fit: contain;
   border-radius: 10px;
   margin-bottom: 1rem;
-}
-
-.card img {
-  border-radius: 10px;
-  background: #f8f8f8;
-  padding: 10px;
 }
 
 .card .price {
