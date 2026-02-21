@@ -38,6 +38,11 @@ async function loadProducts() {
 function displayProducts(products) {
   container.innerHTML = "";
 
+  const modal = document.querySelector("#product-modal");
+  const modalTitle = document.querySelector("#modal-title");
+  const modalDescription = document.querySelector("#modal-description");
+  const closeBtn = document.querySelector(".close-modal");
+
   products.forEach(product => {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -46,29 +51,32 @@ function displayProducts(products) {
       <img src="${product.image}" alt="${product.name.en}" loading="lazy">
       <h3>${product.name.en}</h3>
       <p>${product.desc.en}</p>
-      <p><strong>R$ ${product.price.toFixed(2)}</strong></p>
+      <p class="price"><strong>R$ ${product.price.toFixed(2)}</strong></p>
       <button class="details-btn">View Details</button>
     `;
 
-    // Modal interaction
-    const modal = document.querySelector("#product-modal");
-
     card.querySelector(".details-btn").addEventListener("click", () => {
-      document.querySelector("#modal-title").textContent = product.name.en;
-      document.querySelector("#modal-description").textContent = product.desc.en;
+      modalTitle.textContent = product.name.en;
+      modalDescription.textContent = product.desc.en;
       modal.classList.add("active");
     });
 
     container.appendChild(card);
- 
   });
 
-  // Close modal
-    document.querySelector(".close-modal").addEventListener("click", () => {
+  // Close button
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  // Close clicking outside modal-content
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
       modal.classList.remove("active");
+    }
   });
-
 }
+
 
 document.addEventListener("DOMContentLoaded", loadProducts);
 
