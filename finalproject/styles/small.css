@@ -226,8 +226,8 @@ nav { justify-self: end; }
 .card img,
 .featured-card img {
   width: 100%;
-  height: 220px;
-  object-fit: contain;
+  height: 250px;
+  object-fit: cover;
   margin-bottom: 1rem;
 }
 
