@@ -65,4 +65,5 @@ function displayProducts(products) {
   });
 }
 
-loadProducts();
+document.addEventListener("DOMContentLoaded", loadProducts);
+
