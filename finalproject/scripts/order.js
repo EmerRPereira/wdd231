@@ -48,7 +48,8 @@ async function loadProducts() {
   }
 
   const data = await response.json();
-  products = data.products;
+  products = Array.isArray(data) ? data : data.products;
+
 
 
   products.forEach(product => {
