@@ -40,7 +40,7 @@ function displayProducts(products) {
 
   products.forEach(product => {
     const card = document.createElement("div");
-    card.classList.add("product-card");
+    card.classList.add("card");
 
     card.innerHTML = `
       <img src="${product.image}" alt="${product.name.en}" loading="lazy">
