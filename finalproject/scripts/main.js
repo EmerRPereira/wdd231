@@ -26,33 +26,45 @@ if (lastModified) {
 }
 
 /* Load Featured Product */
-async function loadProducts() {
+async function loadFeaturedProduct() {
+  const container = document.querySelector("#featured-product");
+  if (!container) return;
+
   try {
     const response = await fetch("./data/products.json");
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error("Failed to fetch products.json");
     }
 
-    const data = await response.json();
+    const products = await response.json();
 
-    if (!data.products || !Array.isArray(data.products)) {
-      throw new Error("products array not found in JSON");
+    if (!Array.isArray(products) || products.length === 0) {
+      container.textContent = "No featured product available.";
+      return;
     }
 
-    products = data.products;
+    const randomIndex = Math.floor(Math.random() * products.length);
+    const product = products.at(randomIndex);
 
-    products.forEach(product => {
-      const option = document.createElement("option");
-      option.value = product.id;
-      option.textContent = `${product.name.en} — R$ ${product.price.toFixed(2)}`;
-      select.appendChild(option);
-    });
+    container.innerHTML = `
+      <h3>Featured Product</h3>
+      <img src="${product.image}" 
+           alt="${product.name.en}" 
+           loading="lazy">
+      <h4>${product.name.en}</h4>
+      <p>${product.desc.en}</p>
+      <p><strong>R$ ${product.price.toFixed(2)}</strong></p>
+    `;
 
   } catch (error) {
-    console.error("Erro ao carregar produtos:", error);
+    console.error("Error loading featured product:", error);
   }
 }
+
+/* Initialize */
+loadFeaturedProduct();
+
 
 
 /* Initialize */
