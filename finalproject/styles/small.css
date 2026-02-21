@@ -224,8 +224,8 @@ nav { justify-self: end; }
 .card:hover { transform: translateY(-5px); }
 
 .card img {
-  width: 80%;
-  height: 220px;
+  width: 60%;
+  height: 200px;
   object-fit: cover;
   margin-bottom: 1rem;
 }
