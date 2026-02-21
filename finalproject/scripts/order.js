@@ -45,7 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===== LOAD PRODUCTS ===== */
   async function loadProducts() {
     try {
-      const response = await fetch("./data/products.json");
+      const basePath = window.location.hostname.includes("github.io")
+      ? "/wdd231/finalproject/"
+      : "";
+
+      const response = await fetch(`${basePath}data/products.json`);
       const data = await response.json();
       products = data.products;
 
