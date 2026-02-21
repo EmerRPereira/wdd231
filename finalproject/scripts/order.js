@@ -5,6 +5,8 @@
  * Author: Emerson Ronald Pereira
  *****************************************************/
 
+import { getFromStorage, saveToStorage } from "./storage.js";
+
 const nameInput = document.querySelector("#customer-name");
 const emailInput = document.querySelector("#customer-email");
 const select = document.querySelector("#product-select");
