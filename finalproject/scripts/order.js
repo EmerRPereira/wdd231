@@ -164,10 +164,10 @@ checkoutBtn.addEventListener("click", () => {
     date: new Date().toISOString()
   };
 
-  let orders = JSON.parse(localStorage.getItem("dachsice_orders")) || [];
-  orders.push(order);
+  const orders = getFromStorage("dachsice_orders") || [];
+    orders.push(order);
+    saveToStorage("dachsice_orders", orders);
 
-  localStorage.setItem("dachsice_orders", JSON.stringify(orders));
 
   cart = []; // 🔥 limpa memória também
   localStorage.removeItem("cart");
