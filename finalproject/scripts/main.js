@@ -26,50 +26,34 @@ if (lastModified) {
 }
 
 /* Load Featured Product */
-async function loadFeaturedProduct() {
-  const container = document.querySelector("#featured-product");
-  if (!container) return;
-
+async function loadProducts() {
   try {
     const response = await fetch("./data/products.json");
 
     if (!response.ok) {
-      throw new Error("Failed to fetch products.json");
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const data = await response.json();
-    const products = data.products;
 
-
-    if (!Array.isArray(products) || products.length === 0) {
-      container.textContent = "No featured product available.";
-      return;
+    if (!data.products || !Array.isArray(data.products)) {
+      throw new Error("products array not found in JSON");
     }
 
-    /* Modern Array Method */
-    const randomIndex = Math.floor(Math.random() * products.length);
-    const product = products.at(randomIndex);
+    products = data.products;
 
-    /* Accessibility */
-    container.setAttribute("aria-label", "Featured product");
-
-    /* Safe rendering */
-    container.innerHTML = `
-      <h3>Featured Product</h3>
-      <img src="${product.image}" 
-           alt="${product.name.en}" 
-           loading="lazy"
-           onerror="this.src='images/placeholder.webp'">
-      <h4>${product.name.en}</h4>
-      <p>${product.desc.en}</p>
-      <p><strong>R$ ${product.price.toFixed(2)}</strong></p>
-    `;
+    products.forEach(product => {
+      const option = document.createElement("option");
+      option.value = product.id;
+      option.textContent = `${product.name.en} — R$ ${product.price.toFixed(2)}`;
+      select.appendChild(option);
+    });
 
   } catch (error) {
-    console.error("Error loading featured product:", error);
-    container.textContent = "Unable to load featured product.";
+    console.error("Erro ao carregar produtos:", error);
   }
 }
+
 
 /* Initialize */
 loadFeaturedProduct();
