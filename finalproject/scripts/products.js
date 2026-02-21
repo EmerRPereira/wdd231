@@ -53,7 +53,7 @@ function displayProducts(products) {
     // Modal interaction
     card.querySelector(".details-btn").addEventListener("click", () => {
       document.querySelector("#modal-title").textContent = product.name.en;
-      document.querySelector("#modal-description").textContent = product.description.en;
+      document.querySelector("#modal-description").textContent = product.desc.en;
       document.querySelector("#product-modal").style.display = "block";
     });
 
