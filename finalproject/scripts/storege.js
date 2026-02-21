@@ -6,12 +6,6 @@
  * Location: Curitiba, Brazil
  *****************************************************/
 
-/*****************************************************
- * scripts/storage.js
- * WDD231 – Final Project
- * Local Storage Management (FINAL VERSION)
- *****************************************************/
-
 /* Save data to localStorage */
 export function saveToStorage(key, value) {
   try {
