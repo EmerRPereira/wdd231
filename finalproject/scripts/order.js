@@ -93,8 +93,9 @@ renderCart();
 
 /* ===== ADD TO CART ===== */
 addBtn.addEventListener("click", () => {
-  const productId = select.value;
+  const productId = Number(select.value);
   const qty = Number(quantityInput.value);
+
 
   if (!productId || qty < 1) return;
 
