@@ -41,7 +41,7 @@
       "category": "Milkshake"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": { "pt": "Panetone Gelado", "en": "Iced Panettone" },
       "price": 6.50,
       "image": "images/panetone-gelado.webp",
