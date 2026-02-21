@@ -95,13 +95,12 @@ renderCart();
 
 /* ===== ADD TO CART ===== */
 addBtn.addEventListener("click", () => {
-  const productId = Number(select.value);
+  const productId = select.value; // ❗ NÃO converter para Number
   const qty = Number(quantityInput.value);
-
 
   if (!productId || qty < 1) return;
 
-  const product = products.find(p => p.id === productId);
+  const product = products.find(p => String(p.id) === String(productId));
   if (!product) return;
 
   const checked = toppingsContainer.querySelectorAll("input:checked");
@@ -111,8 +110,10 @@ addBtn.addEventListener("click", () => {
 
   checked.forEach(input => {
     const topping = toppings.find(t => t.id === input.value);
-    selectedToppings.push(topping.name);
-    toppingPrice += topping.price;
+    if (topping) {
+      selectedToppings.push(topping.name);
+      toppingPrice += topping.price;
+    }
   });
 
   const totalPrice = (product.price + toppingPrice) * qty;
@@ -126,6 +127,7 @@ addBtn.addEventListener("click", () => {
 
   renderCart();
 });
+
 
 /* ===== REMOVE ITEM ===== */
 cartContainer.addEventListener("click", e => {
