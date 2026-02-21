@@ -156,11 +156,8 @@ checkoutBtn.addEventListener("click", () => {
 
   const order = {
     id: Date.now(),
-    customer: {
-      name,
-      email
-    },
-    items: cart,
+    customer: { name, email },
+    items: [...cart], // 🔥 CÓPIA REAL DO ARRAY
     total,
     date: new Date().toISOString()
   };
@@ -169,6 +166,8 @@ checkoutBtn.addEventListener("click", () => {
   orders.push(order);
 
   localStorage.setItem("dachsice_orders", JSON.stringify(orders));
+
+  cart = []; // 🔥 limpa memória também
   localStorage.removeItem("cart");
 
   window.location.href = "thankyou.html";
