@@ -12,7 +12,11 @@ async function loadProducts() {
   if (!container) return;
 
   try {
-    const response = await fetch("./data/products.json");
+    const basePath = window.location.pathname.includes("finalproject")
+      ? "/wdd231/finalproject/"
+      : "/";
+    
+    const response = await fetch(`${basePath}data/products.json`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
