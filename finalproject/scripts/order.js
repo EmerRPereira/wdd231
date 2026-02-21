@@ -48,7 +48,7 @@ async function loadProducts() {
   }
 
   const data = await response.json();
-  const products = data.products;
+  products = data.products;
 
 
   products.forEach(product => {
