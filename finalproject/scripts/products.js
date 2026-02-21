@@ -12,8 +12,7 @@ async function loadProducts() {
   if (!container) return;
 
   try {
-    const response = await fetch("https://emerrpereira.github.io/wdd231/finalproject/data/products.json
-");
+    const response = await fetch("https://emerrpereira.github.io/wdd231/finalproject/data/products.json");
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
