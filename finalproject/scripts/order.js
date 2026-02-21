@@ -47,7 +47,9 @@ async function loadProducts() {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
-  const products = await response.json();
+  const data = await response.json();
+  const products = data.products;
+
 
   products.forEach(product => {
     const option = document.createElement("option");
