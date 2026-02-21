@@ -37,7 +37,9 @@ async function loadFeaturedProduct() {
       throw new Error("Failed to fetch products.json");
     }
 
-    const products = await response.json();
+    const data = await response.json();
+    const products = data.products;
+
 
     if (!Array.isArray(products) || products.length === 0) {
       container.textContent = "No featured product available.";
