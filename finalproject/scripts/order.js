@@ -41,19 +41,25 @@ renderToppings();
 /* ===== LOAD PRODUCTS ===== */
 async function loadProducts() {
   try {
-    const response = await fetch("../data/products.json");
-    products = await response.json();
+  const response = await fetch("../data/products.json");
 
-    products.forEach(product => {
-      const option = document.createElement("option");
-      option.value = product.id;
-      option.textContent = `${product.name.en} — R$ ${product.price.toFixed(2)}`;
-      select.appendChild(option);
-    });
-
-  } catch (error) {
-    console.error("Error loading products:", error);
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
   }
+
+  const products = await response.json();
+
+  products.forEach(product => {
+    const option = document.createElement("option");
+    option.value = product.id;
+    option.textContent = `${product.name.en} — R$ ${product.price.toFixed(2)}`;
+    select.appendChild(option);
+  });
+
+} catch (error) {
+  console.error("Erro ao carregar produtos:", error);
+}
+
 }
 loadProducts();
 
