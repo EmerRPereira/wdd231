@@ -51,19 +51,23 @@ function displayProducts(products) {
     `;
 
     // Modal interaction
+    const modal = document.querySelector("#product-modal");
+
     card.querySelector(".details-btn").addEventListener("click", () => {
       document.querySelector("#modal-title").textContent = product.name.en;
       document.querySelector("#modal-description").textContent = product.desc.en;
-      document.querySelector("#product-modal").style.display = "block";
+      modal.classList.add("active");
     });
 
     container.appendChild(card);
+ 
   });
 
   // Close modal
-  document.querySelector(".close-modal").addEventListener("click", () => {
-    document.querySelector("#product-modal").style.display = "none";
+    document.querySelector(".close-modal").addEventListener("click", () => {
+      modal.classList.remove("active");
   });
+
 }
 
 document.addEventListener("DOMContentLoaded", loadProducts);
