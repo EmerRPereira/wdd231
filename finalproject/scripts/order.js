@@ -170,9 +170,8 @@ checkoutBtn.addEventListener("click", () => {
     orders.push(order);
     saveToStorage("dachsice_orders", orders);
 
-
   cart = []; // 🔥 limpa memória também
-  localStorage.removeItem("cart");
+  saveToStorage("cart", []);
 
   window.location.href = "thankyou.html";
 });
