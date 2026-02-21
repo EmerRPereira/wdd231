@@ -50,8 +50,6 @@ async function loadProducts() {
   const data = await response.json();
   products = Array.isArray(data) ? data : data.products;
 
-
-
   products.forEach(product => {
     const option = document.createElement("option");
     option.value = product.id;
