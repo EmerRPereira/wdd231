@@ -41,7 +41,7 @@ renderToppings();
 /* ===== LOAD PRODUCTS ===== */
 async function loadProducts() {
   try {
-    const response = await fetch("/wdd231/finalproject/data/products.json");
+    const response = await fetch("../data/products.json");
     products = await response.json();
 
     products.forEach(product => {
