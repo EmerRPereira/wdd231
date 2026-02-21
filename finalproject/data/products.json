@@ -11,7 +11,7 @@
     "id": 2,
     "name": { "pt": "Top Sundae 300ml (2 sabores)", "en": "300ml Top Sundae (2 flavors)" },
     "price": 10.00,
-    "image": "images/topsundae-beaglemor.svg",
+    "image": "images/topsundae-beaglemor.webp",
     "desc": { "pt": "2 sabores", "en": "2 flavors" },
     "category": "Sundae"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "name": { "pt": "Milkshake Chocolate", "en": "Chocolate Milkshake" },
     "price": 15.00,
-    "image": "images/yorkshake-choc.svg",
+    "image": "images/yorkshake-choc.webp",
     "desc": { "pt": "Milkshake cremoso", "en": "Creamy milkshake" },
     "category": "Milkshake"
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "name": { "pt": "Milkshake Morango", "en": "Strawberry Milkshake" },
     "price": 15.00,
-    "image": "images/milkshake-mor.svg",
+    "image": "images/milkshake-mor.webp",
     "desc": { "pt": "Com chantilly", "en": "With whipped cream" },
     "category": "Milkshake"
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "name": { "pt": "Panetone Gelado", "en": "Iced Panettone" },
     "price": 6.50,
-    "image": "images/panetone-gelado.svg",
+    "image": "images/panetone-gelado.webp",
     "desc": { "pt": "Monte o seu", "en": "Build your own" },
     "category": "Special"
   },
@@ -59,7 +59,7 @@
     "id": 8,
     "name": { "pt": "Crepe", "en": "Crepe" },
     "price": 6.00,
-    "image": "images/crepe-1.svg",
+    "image": "images/crepe-1.webp",
     "desc": { "pt": "Vários Sabores", "en": "Various flavors" },
     "category": "Crepe"
   },
@@ -67,7 +67,7 @@
     "id": 9,
     "name": { "pt": "Cascão", "en": "Cascão" },
     "price": 7.00,
-    "image": "images/cascao.svg",
+    "image": "images/cascao.webp",
     "desc": { "pt": "Cobertura e tubete", "en": "Cover and tube" },
     "category": "Ice Cream"
   }
