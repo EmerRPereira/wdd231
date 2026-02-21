@@ -19,7 +19,7 @@ const toppingsContainer = document.querySelector("#toppings-container");
 const clearBtn = document.querySelector("#clear-cart");
 
 let products = [];
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = getFromStorage("cart") || [];
 
 const toppings = [
   { id: "granulado", name: "Granulado", price: 2 },
