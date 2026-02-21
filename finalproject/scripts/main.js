@@ -37,15 +37,18 @@ async function loadFeaturedProduct() {
       throw new Error("Failed to fetch products.json");
     }
 
-    const products = await response.json();
+    const data = await response.json();
 
-    if (!Array.isArray(products) || products.length === 0) {
+    // 🔥 CORREÇÃO AQUI
+    const products = data.products;
+
+    if (!products || !Array.isArray(products) || products.length === 0) {
       container.textContent = "No featured product available.";
       return;
     }
 
     const randomIndex = Math.floor(Math.random() * products.length);
-    const product = products.at(randomIndex);
+    const product = products[randomIndex];
 
     container.innerHTML = `
       <h3>Featured Product</h3>
@@ -61,6 +64,7 @@ async function loadFeaturedProduct() {
     console.error("Error loading featured product:", error);
   }
 }
+
 
 /* Initialize */
 loadFeaturedProduct();
