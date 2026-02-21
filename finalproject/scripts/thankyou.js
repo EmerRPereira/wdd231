@@ -13,10 +13,8 @@ const grandTotalEl = document.querySelector("#grand-total");
 const clearBtn = document.querySelector("#clear-orders");
 
 /* Get stored orders */
-const orders = Array.isArray(getFromStorage("dachsice_orders"))
-  ? getFromStorage("dachsice_orders")
-  : [];
-
+const storedOrders = getFromStorage("dachsice_orders");
+const orders = Array.isArray(storedOrders) ? storedOrders : [];
 
 /* Get URL parameters */
 const params = new URLSearchParams(window.location.search);
