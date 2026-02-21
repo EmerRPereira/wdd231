@@ -232,8 +232,8 @@ nav { justify-self: end; }
 
 /* Logo menor e controlado */
 .featured-logo {
-  width: 200px;
-  height: 130%;
+  width: 100px;
+  height: 200%;
   display: block;
   margin: 0 auto 1rem auto;
 }
