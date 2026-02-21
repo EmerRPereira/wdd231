@@ -6,95 +6,62 @@
  * Location: Curitiba, Brazil
  *****************************************************/
 
-import { saveToStorage } from "./storage.js";
+const container = document.querySelector("#product-grid");
 
-const grid = document.querySelector("#product-grid");
-const modal = document.getElementById("product-modal");
-const modalTitle = document.getElementById("modal-title");
-const modalDescription = document.getElementById("modal-description");
-const closeModal = document.querySelector(".close-modal");
-
-/* Product Extra Details */
-const productDetails = {
-  "Classic Cone": "Available flavors: Vanilla, Chocolate, Mixed. Cone or cup option. Add toppings for +R$2.",
-  "300ml Top Sundae (2 flavors)": "Choose 2 flavors. Includes syrup topping. Optional whipped cream.",
-  "Chocolate Milkshake": "Creamy chocolate milkshake. Sizes: 300ml or 500ml. Optional extra chocolate drizzle."
-};
-
-/* Load Products from JSON */
 async function loadProducts() {
-  if (!grid) return;
+  if (!container) return;
 
   try {
-    const response = await fetch("./data/products.json");
+    const response = await fetch("data/products.json");
 
     if (!response.ok) {
-      throw new Error("Failed to fetch products.json");
+      throw new Error("Failed to fetch products");
     }
 
     const products = await response.json();
 
-    grid.innerHTML = "";
+    if (!Array.isArray(products) || products.length === 0) {
+      container.innerHTML = "<p>No products available.</p>";
+      return;
+    }
 
-    products.forEach(product => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-
-      card.innerHTML = `
-        <img src="${product.image}" 
-             alt="${product.name.en}" 
-             loading="lazy"
-             onerror="this.src='images/placeholder.webp'">
-        <h3>${product.name.en}</h3>
-        <p>${product.desc.en}</p>
-        <p class="price">R$ ${product.price.toFixed(2)}</p>
-        <button aria-label="View details of ${product.name.en}">
-          Details
-        </button>
-      `;
-
-      grid.appendChild(card);
-    });
+    displayProducts(products);
 
   } catch (error) {
     console.error("Error loading products:", error);
-    if (grid) {
-      grid.textContent = "Unable to load products.";
-    }
+    container.innerHTML = "<p>Unable to load products.</p>";
   }
 }
 
-/* Event Delegation for Modal */
-if (grid && modal) {
-  grid.addEventListener("click", (e) => {
-    if (e.target.tagName === "BUTTON") {
+function displayProducts(products) {
+  container.innerHTML = "";
 
-      const card = e.target.closest(".card");
-      if (!card) return;
+  products.forEach(product => {
+    const card = document.createElement("div");
+    card.classList.add("product-card");
 
-      const productName = card.querySelector("h3").textContent;
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name.en}" loading="lazy">
+      <h3>${product.name.en}</h3>
+      <p>${product.description.en}</p>
+      <p><strong>R$ ${product.price.toFixed(2)}</strong></p>
+      <button class="details-btn">View Details</button>
+    `;
 
-      modalTitle.textContent = productName;
-      modalDescription.textContent =
-        productDetails[productName] || "More details coming soon!";
+    // Modal interaction
+    card.querySelector(".details-btn").addEventListener("click", () => {
+      document.querySelector("#modal-title").textContent = product.name.en;
+      document.querySelector("#modal-description").textContent = product.description.en;
+      document.querySelector("#product-modal").style.display = "block";
+    });
 
-      modal.classList.add("active");
-    }
+    container.appendChild(card);
+  });
+
+  // Close modal
+  document.querySelector(".close-modal").addEventListener("click", () => {
+    document.querySelector("#product-modal").style.display = "none";
   });
 }
 
-/* Close Modal */
-if (closeModal && modal) {
-  closeModal.addEventListener("click", () => {
-    modal.classList.remove("active");
-  });
-}
-
-window.addEventListener("click", (e) => {
-  if (modal && e.target === modal) {
-    modal.classList.remove("active");
-  }
-});
-
-/* Initialize */
 loadProducts();
