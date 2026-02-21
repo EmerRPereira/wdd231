@@ -90,7 +90,8 @@ function renderCart() {
   });
 
   totalEl.textContent = total.toFixed(2);
-  localStorage.setItem("cart", JSON.stringify(cart));
+  saveToStorage("cart", cart);
+
 }
 renderCart();
 
