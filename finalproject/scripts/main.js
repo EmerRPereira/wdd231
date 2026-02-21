@@ -64,9 +64,3 @@ async function loadFeaturedProduct() {
 
 /* Initialize */
 loadFeaturedProduct();
-
-
-
-/* Initialize */
-loadFeaturedProduct();
-
