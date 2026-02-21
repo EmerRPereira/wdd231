@@ -43,27 +43,29 @@ renderToppings();
 /* ===== LOAD PRODUCTS ===== */
 async function loadProducts() {
   try {
-  const response = await fetch("./data/products.json");
+    const response = await fetch("data/products.json");
 
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    products = Array.isArray(data) ? data : data.products;
+
+    if (!products || !products.length) return;
+
+    products.forEach(product => {
+      const option = document.createElement("option");
+      option.value = product.id;
+      option.textContent = `${product.name.en} — R$ ${product.price.toFixed(2)}`;
+      select.appendChild(option);
+    });
+
+  } catch (error) {
+    console.error("Erro ao carregar produtos:", error);
   }
-
-  const data = await response.json();
-  products = Array.isArray(data) ? data : data.products;
-    
-  products.forEach(product => {
-    const option = document.createElement("option");
-    option.value = product.id;
-    option.textContent = `${product.name.en} — R$ ${product.price.toFixed(2)}`;
-    select.appendChild(option);
-  });
-
-} catch (error) {
-  console.error("Erro ao carregar produtos:", error);
 }
 
-}
 loadProducts();
 
 /* ===== RENDER CART ===== */
